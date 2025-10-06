@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-color: #fff;
+  --color-bg-color: #fff;
+  --color-input-color: #fff;
+  --coloor-border-color: #fff;
+  --color-seconday-color: #fff;
+  --color-text-color: #111;
+}
+
+body {
+  @apply w-full max-w-[1440px] mx-auto bg-primary text-text-color;
+}
