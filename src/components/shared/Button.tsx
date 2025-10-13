@@ -14,7 +14,7 @@ type ButtonProps = {
 }
 
 const styles = {
-    primary: 'bg-primary text-white py-3 px-4 text-base',
+    primary: 'bg-brand text-white py-3 px-4 text-base',
     secondary: 'bg-white text-primary2 py-2 px-4 font-medium',
     small: 'bg-primary2 text-white py-1 px-4 font-normal',
     outline: 'border border-borderColor rounded-lg py-2 px-4 text-base text-primary2',
