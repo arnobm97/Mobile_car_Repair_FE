@@ -11,7 +11,7 @@ const navLinks = [
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
   { name: "Blog", path: "/blog" },
-  { name: "Contact Us", path: "/contact" },
+  { name: "Contact Us", path: "/contact-us" },
 ];
 
 export const Navbar = () => {
@@ -62,7 +62,7 @@ export const Navbar = () => {
                     key={link.path}
                     href={link.path}
                     className={`text-md font-bold transition-colors hover:text-brand ${
-                      isActive(link.path) ? "text-text" : "text-foreground"
+                      isActive(link.path) ? "text-brand" : "text-foreground"
                     }`}
                   >
                     {link.name}

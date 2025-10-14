@@ -1,9 +1,26 @@
-import React from 'react'
+import aboutHero from "@/images/Best-Car-Repair-Service-in-Dubai.jpg";
+import { PageHero } from "@/components/shared/PageHero";
+import { SolutionSection } from "@/components/Solution/solution";
+import { brandsSection, solutionSection, whyChooseData } from "@/data/data";
+import { BrandsSection } from "@/components/brands/Brand";
+import { WhyChooseSection } from "@/components/whychoose/WhyChooseSection";
+
 
 const page = () => {
   return (
-    <div>about page</div>
-  )
-}
+    <div className="w-full bg-secondary">
+      <PageHero 
+        title="About" 
+        backgroundImage={aboutHero}
+        breadcrumbs={[{ label: "About" }]}
+      />
+      
+      {/* About Content */}
+      <SolutionSection {...solutionSection}/>
+      <BrandsSection {...brandsSection}/>
+      <WhyChooseSection {...whyChooseData}/>
+    </div>
+  );
+};
 
-export default page
+export default page;
