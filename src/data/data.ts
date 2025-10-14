@@ -21,8 +21,11 @@ import suzukiLogo from "@/images/brands/Suzuki.webp"
 import toyotaLogo from "@/images/brands/Toyota.webp"
 import volkswagenLogo from "@/images/brands/Volkswagen.webp"
 import Solutionshowcare from "@/images/Best-Car-Repair-Service-in-Dubai.jpg"
+import WhyChoose from "@/images/WhyChoose.jpg";
 
 import { Car, Settings, Zap, CircleDotDashed, Droplet, Battery, Cpu, Fuel, Thermometer} from "lucide-react";
+
+
 
 export const heroSlides = [
   {
@@ -123,4 +126,52 @@ export const contactSection = {
     email: "Eunosmohammed85@gmail.com",
     phone: "+971557767041",
   },
+};
+
+export const whyChooseData = {
+  sectionTitle: "Why Choose Us ?",
+  mainHeading: "Best Car Repair Service In Dubai",
+  introText:
+    "At Car Repair Service, we don't just fix cars, we build trust and lasting relationships with our valued customers. Here's why we stand out from the competition:",
+  features: [
+    {
+      title: "Unparalleled Expertise – Car Repair Service Dubai",
+      description:
+        "We are your go-to destination for comprehensive car repair services in Dubai, catering to various vehicle models and brands.",
+    },
+    {
+      title: "Dubai Car Repair",
+      description:
+        "Our commitment to excellence has made us a trusted name in Dubai for high-quality car repair solutions.",
+    },
+    {
+      title: "Auto Repair Dubai",
+      description:
+        "From routine maintenance to complex repairs, we offer a wide range of auto repair services to keep your vehicle in top condition.",
+    },
+    {
+      title: "Car Garage Dubai",
+      description:
+        "Our state-of-the-art garage is equipped with the latest technology and tools, ensuring precision in every repair.",
+    },
+    {
+      title: "Car Mechanic Dubai",
+      description:
+        "Our certified mechanics specialize in diagnosing and resolving even the most challenging car issues efficiently.",
+    },
+    {
+      title: "Dubai Car Workshop",
+      description:
+        "At our workshop, we focus on the smallest details to ensure your vehicle performs at its peak.",
+    },
+    {
+      title: "Car Fixing Service",
+      description:
+        "We're not just fixing cars—we're enhancing your driving experience for safety, reliability, and comfort.",
+    },
+  ],
+  image: WhyChoose,
+  imageAlt: "Professional mechanic working on a car",
+  buttonText: "Call Us Now",
+  buttonLink: "#contact",
 };
