@@ -3,15 +3,17 @@ import { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface PageHeroProps {
-  title: string;
+  title: string | React.ReactNode;
   backgroundImage: string | StaticImageData;
   breadcrumbs?: { label: string; path?: string }[];
+  titleClassName?: string;
 }
 
 export const PageHero = ({
   title,
   backgroundImage,
   breadcrumbs = [],
+  titleClassName,
 }: PageHeroProps) => {
   return (
     <div className="relative h-[200px] w-full overflow-hidden">
@@ -31,7 +33,11 @@ export const PageHero = ({
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
-        <h1 className="mb-4 text-2xl font-bold text-white md:text-4xl uppercase tracking-wider">
+        <h1
+          className={`mb-4 font-bold text-white uppercase tracking-wider ${
+            titleClassName || "text-2xl md:text-4xl"
+          }`}
+        >
           {title}
         </h1>
 
