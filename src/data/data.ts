@@ -175,3 +175,56 @@ export const whyChooseData = {
   buttonText: "Call Us Now",
   buttonLink: "#contact",
 };
+
+export const blogPosts= [
+  {
+    title:"Expert Tyre Puncture Repair Nearby Dubai",
+    content: "Need a quick fix for a tyre puncture? Look no further! Find reliable tyre repair services near you in Dubai. Get back on the road in no time.",
+    date: "August 23, 2023",
+    commentsCount: 0,
+    slug: "expert-tyre-puncture-repair-nearby-dubai",
+    author: "Monirul Islam",
+    category:"Uncategorized",
+    authorAvatar:""
+  },
+  {
+    title: "Better Car Fix Near Me In Dubai",
+    content: "Looking for a reliable and efficient car fix near you in Dubai? Look no further! Our expert team provides top-notch service to get you back on the road in no time.",
+    date: "August 22, 2023",
+    commentsCount: 0,
+    slug: "better-car-fix-near-me-in-dubai",
+    author: "Monirul Islam",
+    category:"Uncategorized",
+    authorAvatar:""
+  },
+  {
+    title: "Find The Best Car Mechanic In Dubai",
+    content: "Looking for reliable car mechanics in Dubai? Look no further! Discover the best car repair services in town and get your vehicle running smoothly again.",
+    date: "August 21, 2023",
+    commentsCount: 0,
+    slug: "find-the-best-car-mechanic-in-dubai",
+    author: "Monirul Islam",
+    category:"Uncategorized",
+    authorAvatar:""
+  },
+  {
+    title: "Best Car Repair And Service Center, UAE",
+    content: "Looking for the best car repair and service center in UAE? Look no further! Our team of experts will get your car running smoothly in no time.",
+    date: "August 20, 2023",
+    commentsCount: 0,
+    slug: "best-car-repair-and-service-center-uae",
+    author: "Monirul Islam",
+    category:"Uncategorized",
+    authorAvatar:""
+  },
+  {
+    title: "Best Car Battery Replacement Near Me",
+    content: "Find the best car battery replacement near you at an affordable cost. Trust our expert technicians for reliable and efficient service.",
+    date: "August 19, 2023",
+    commentsCount: 0,
+    slug: "best-car-battery-replacement-near-me",
+    author: "Monirul Islam",
+    category:"Uncategorized",
+    authorAvatar:""
+  },
+];
