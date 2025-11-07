@@ -1,5 +1,5 @@
 import { MapPin, Mail, Phone } from "lucide-react";
-import { ContactForm } from "../shared/ContactForm";
+import { ContactForm, ContactFormValues } from "../shared/ContactForm";
 
 interface ContactInfo {
   location?: {
@@ -14,7 +14,7 @@ interface ContactSectionProps {
   label?: string;
   heading: string;
   contactInfo: ContactInfo;
-  onFormSubmit?: (data: any) => void;
+  onFormSubmit?: (data: ContactFormValues) => void;
   submitButtonText?: string;
 }
 

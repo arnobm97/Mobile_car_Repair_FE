@@ -1,4 +1,5 @@
 import { BadgeCheck, Star } from "lucide-react";
+import Image from "next/image";
 
 export interface TestimonialCardProps {
   name: string;
@@ -22,9 +23,12 @@ export const TestimonialCard = ({
       <div className="flex items-center gap-3 mb-4">
         <div className="w-12 h-12 rounded-full bg-testimonial-avatar flex items-center justify-center text-white font-semibold">
           {avatar ? (
-            <img
+            <Image
               src={avatar}
               alt={name}
+              width={0}
+              height={0}
+              sizes="100vw"
               className="w-full h-full rounded-full object-cover"
             />
           ) : (
@@ -64,11 +68,10 @@ export const TestimonialCard = ({
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
-            className={`w-4 h-4 ${
-              i < rating
+            className={`w-4 h-4 ${i < rating
                 ? "fill-yellow-400 text-yellow-400 text-testimonial-star"
                 : "fill-muted text-muted"
-            }`}
+              }`}
           />
         ))}
         <BadgeCheck className="w-5 h-5 fill-blue-700 text-white" />

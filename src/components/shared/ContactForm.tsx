@@ -15,16 +15,15 @@ const contactFormSchema = z.object({
   message: z.string().trim().min(1, "Message is required"),
 });
 
-type ContactFormValues = z.infer<typeof contactFormSchema>;
+export type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 interface ContactFormProps {
-  onSubmit?: (data: any) => void;
+  onSubmit?: (data: ContactFormValues) => void;
   submitButtonText?: string;
 }
 
 export const ContactForm = ({
-  onSubmit,
-  submitButtonText = "Send Message",
+  onSubmit
 }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormValues>({
@@ -49,6 +48,7 @@ export const ContactForm = ({
       }
       reset();
     } catch (error) {
+      console.log(error);
       alert("Failed to send message. Try again later.");
     } finally {
       setIsSubmitting(false);

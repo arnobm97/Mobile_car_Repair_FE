@@ -1,5 +1,4 @@
 import { Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Image, { StaticImageData } from "next/image";
 
 export interface WhyChooseFeature {
@@ -34,8 +33,8 @@ export const WhyChooseSection = ({
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Image */}
           <div className="order-1 lg:order-1">
-            <Image 
-              src={image} 
+            <Image
+              src={image}
               alt={imageAlt}
               className="w-full h-auto rounded-lg object-cover"
             />
@@ -74,7 +73,7 @@ export const WhyChooseSection = ({
 
             {/* CTA Button */}
             {buttonText && (
-              <button 
+              <button
                 className="bg-brand hover:bg-brand/90 px-6 py-2 font-bold text-primary tracking-wider"
               >
                 {buttonLink ? (

@@ -16,7 +16,6 @@ export const TestimonialsSection = ({
   label = "Clients Feedback",
   heading,
   description,
-  overallRating = 5,
   totalReviews = 33,
   testimonials,
 }: TestimonialsSectionProps) => {
@@ -110,24 +109,24 @@ export const TestimonialsSection = ({
 
             {/* Right: Testimonials Carousel */}
             <div className="lg:col-span-7 relative px-12">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-4">
-                {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/2 lg:basis-1/3">
-                    <TestimonialCard {...testimonial} />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-0" />
-              <CarouselNext className="right-0" />
-            </Carousel>
-          </div>
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="-ml-4">
+                  {testimonials.map((testimonial, index) => (
+                    <CarouselItem key={index} className="pl-4 basis-full sm:basis-1/2 md:basis-1/2 lg:basis-1/3">
+                      <TestimonialCard {...testimonial} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-0" />
+                <CarouselNext className="right-0" />
+              </Carousel>
+            </div>
           </div>
         </div>
       </div>
