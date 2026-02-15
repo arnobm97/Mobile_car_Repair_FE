@@ -8,6 +8,7 @@ export interface TestimonialCardProps {
   review: string;
   avatar?: string;
   initial?: string;
+  link?: string;
 }
 
 export const TestimonialCard = ({
@@ -17,9 +18,10 @@ export const TestimonialCard = ({
   review,
   avatar,
   initial,
+  link,
 }: TestimonialCardProps) => {
-  return (
-    <div className="rounded-sm p-6 h-full flex flex-col shadow-sm">
+  const CardContent = (
+    <div className="rounded-sm p-6 h-full flex flex-col shadow-sm hover:shadow-md transition-shadow cursor-pointer">
       <div className="flex items-center gap-3 mb-4">
         <div className="w-12 h-12 rounded-full bg-testimonial-avatar flex items-center justify-center text-white font-semibold">
           {avatar ? (
@@ -69,8 +71,8 @@ export const TestimonialCard = ({
           <Star
             key={i}
             className={`w-4 h-4 ${i < rating
-                ? "fill-yellow-400 text-yellow-400 text-testimonial-star"
-                : "fill-muted text-muted"
+              ? "fill-yellow-400 text-yellow-400 text-testimonial-star"
+              : "fill-muted text-muted"
               }`}
           />
         ))}
@@ -80,4 +82,14 @@ export const TestimonialCard = ({
       <p className="text-sm text-muted-foreground flex-grow">{review}</p>
     </div>
   );
+
+  if (link) {
+    return (
+      <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full">
+        {CardContent}
+      </a>
+    );
+  }
+
+  return CardContent;
 };

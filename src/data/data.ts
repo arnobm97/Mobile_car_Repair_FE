@@ -91,9 +91,9 @@ export const testimonialsSection = {
   overallRating: 5,
   totalReviews: 33,
   testimonials: [
-    { name: "Haleem Khan", date: "2024-12-17", rating: 5, review: "Very nice and experienced staff", initial: "H" },
-    { name: "Taqi Usmani", date: "2024-12-16", rating: 5, review: "On time coming and repair my car thanks", initial: "T" },
-    { name: "Marwan Jan", date: "2024-12-15", rating: 5, review: "I am Very satisfied with their service thanks", initial: "M" },
+    { name: "Haleem Khan", date: "2024-12-17", rating: 5, review: "Very nice and experienced staff", initial: "H", link: "https://g.co/kgs/example1" },
+    { name: "Taqi Usmani", date: "2024-12-16", rating: 5, review: "On time coming and repair my car thanks", initial: "T", link: "https://g.co/kgs/example2" },
+    { name: "Marwan Jan", date: "2024-12-15", rating: 5, review: "I am Very satisfied with their service thanks", initial: "M", link: "https://g.co/kgs/example3" },
   ],
 };
 
