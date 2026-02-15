@@ -64,12 +64,12 @@ export const SolutionSection = ({
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 items-center justify-center">
               {/* Primary Button - Call Now */}
-              <button
-                className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105"
-                onClick={handlePrimaryClick}
+              <a
+                href="tel:+971557767041"
+                className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105 inline-block text-center"
               >
                 {primaryButtonText}
-              </button>
+              </a>
 
               {/* Secondary Button - Our Services - Navigates to /services */}
               <button

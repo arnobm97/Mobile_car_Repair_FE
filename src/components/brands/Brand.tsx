@@ -1,10 +1,4 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 import Image, { StaticImageData } from "next/image";
 
 interface Brand {
@@ -29,35 +23,40 @@ export const BrandsSection = ({ heading, description, brands }: BrandsSectionPro
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-12">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {brands.map((brand, index) => (
-                <CarouselItem
-                  key={index}
-                  className="pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5"
-                >
-                  <div className="flex items-center justify-center h-32 bg-background rounded-lg p-6 hover:shadow-lg transition-shadow">
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      width={250}
-                      height={250}
-                      className="max-w-full max-h-full object-contain transition-all"
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-0" />
-            <CarouselNext className="right-0" />
-          </Carousel>
+        <div className="relative w-full overflow-hidden mask-gradient-to-r from-transparent via-black to-transparent">
+          <div className="flex w-max animate-marquee gap-12 hover:[animation-play-state:paused]">
+            {/* Original Brands */}
+            {brands.map((brand, index) => (
+              <div
+                key={`brand-${index}`}
+                className="flex items-center justify-center w-[200px] h-[120px] bg-background rounded-lg p-4 transition-transform duration-300 hover:scale-110"
+              >
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={150}
+                  height={150}
+                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+
+            {/* Duplicated Brands for seamless loop */}
+            {brands.map((brand, index) => (
+              <div
+                key={`brand-dup-${index}`}
+                className="flex items-center justify-center w-[200px] h-[120px] bg-background rounded-lg p-4 transition-transform duration-300 hover:scale-110"
+              >
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={150}
+                  height={150}
+                  className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

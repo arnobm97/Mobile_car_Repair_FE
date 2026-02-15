@@ -61,9 +61,8 @@ export const Navbar = () => {
                   <Link
                     key={link.path}
                     href={link.path}
-                    className={`text-md font-bold transition-colors hover:text-brand ${
-                      isActive(link.path) ? "text-brand" : "text-foreground"
-                    }`}
+                    className={`text-md font-bold transition-colors hover:text-brand ${isActive(link.path) ? "text-brand" : "text-foreground"
+                      }`}
                   >
                     {link.name}
                   </Link>
@@ -71,14 +70,20 @@ export const Navbar = () => {
               </div>
 
               {/* Desktop Book Now Button */}
-              <button className="hidden md:flex bg-brand px-6 py-2 text-white font-bold">
+              <Link
+                href="/contact-us"
+                className="hidden md:flex bg-red-600 px-6 py-2 text-white font-bold hover:bg-red-700 transition-colors"
+              >
                 Book Now
-              </button>
+              </Link>
               {/* Mobile: Phone + Book Now + Menu Toggle */}
               <div className="flex md:hidden items-center gap-3">
-                <button className="bg-brand px-6 py-2 text-white font-bold">
+                <Link
+                  href="/contact-us"
+                  className="bg-red-600 px-6 py-2 text-white font-bold hover:bg-red-700 transition-colors"
+                >
                   Book Now
-                </button>
+                </Link>
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="text-white p-2 bg-brand font-bold"
@@ -104,9 +109,8 @@ export const Navbar = () => {
                   key={link.path}
                   href={link.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-4 py-4 hover:bg-brand transition-colors ${
-                    isActive(link.path) ? "bg-brand text-white" : ""
-                  }`}
+                  className={`block px-4 py-4 hover:bg-brand transition-colors ${isActive(link.path) ? "bg-brand text-white" : ""
+                    }`}
                 >
                   {link.name}
                 </Link>
