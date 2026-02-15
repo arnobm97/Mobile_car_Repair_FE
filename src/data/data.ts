@@ -22,27 +22,38 @@ import toyotaLogo from "@/images/brands/Toyota.webp"
 import volkswagenLogo from "@/images/brands/Volkswagen.webp"
 import Solutionshowcare from "@/images/Best-Car-Repair-Service-in-Dubai.jpg"
 import WhyChoose from "@/images/WhyChoose.jpg";
+import hero1 from "@/images/hero1.webp";
+import hero2 from "@/images/hero2.webp";
+import hero3 from "@/images/hero3.webp";
 
-import { Car, Settings, Zap, CircleDotDashed, Droplet, Battery, Cpu, Fuel, Thermometer} from "lucide-react";
+import { Car, Settings, Zap, CircleDotDashed, Droplet, Battery, Cpu, Fuel, Thermometer } from "lucide-react";
 
 
 
 export const heroSlides = [
   {
     id: 1,
-    image: "/images/hero1.jpg",
+    image: hero1.src,
     title: "vehicle repair service in dubai",
     description: "Service, maintenance, and repair by certified experts in Dubai, UAE. Mobile Car Repairs Service offers complete car repair, maintenance, and service solutions at your convenience.",
     buttonText: "Book Now",
-    buttonLink: "#contact",
+    buttonLink: "/contact-us",
   },
   {
     id: 2,
-    image: "/images/hero1.jpg",
+    image: hero2.src,
     title: "vehicle repair service in dubai",
-    description: "Service, maintenance, and repair by certified experts in Dubai, UAE. Mobile Car Repairs Service offers complete car repair, maintenance, and service solutions at your convenience.",
+    description: "Comprehensive car repair and maintenance services by certified mechanics. From engine diagnostics to brake repairs, we handle all your vehicle needs with precision and care.",
     buttonText: "Book Now",
-    buttonLink: "#contact",
+    buttonLink: "/contact-us",
+  },
+  {
+    id: 3,
+    image: hero3.src,
+    title: "vehicle repair service in dubai",
+    description: "Professional car painting services to give your vehicle a fresh, new look. Our expert technicians use high-quality paints and techniques to restore and enhance your car's appearance.",
+    buttonText: "Book Now",
+    buttonLink: "/contact-us",
   },
 ];
 
@@ -53,7 +64,7 @@ export const solutionSection = {
     "Our experienced team of technicians is dedicated to delivering top-quality services to keep your vehicle running smoothly. Whether it’s transmission repair, air conditioning servicing, or auto electrical solutions, we’ve got you covered. We specialize in battery replacement and car diagnostics, ensuring that your vehicle is always in its prime condition.",
   primaryButtonText: "Call Us Now",
   secondaryButtonText: "Our Services",
-  imageUrl: Solutionshowcare.src, 
+  imageUrl: Solutionshowcare.src,
 };
 
 export const servicesSection = {
@@ -94,8 +105,8 @@ export const brandsSection = {
     { name: "Audi", logo: audiLogo },
     { name: "Volkswagen", logo: volkswagenLogo },
     { name: "Bentley", logo: bentleyLogo },
-    { name: "BMW", logo: bmwLogo},
-    { name: "Ford", logo: fordLogo},
+    { name: "BMW", logo: bmwLogo },
+    { name: "Ford", logo: fordLogo },
     { name: "Chevrolet", logo: chevroletLogo },
     { name: "GMC", logo: gmcLogo },
     { name: "Honda", logo: hondaLogo },
@@ -176,16 +187,16 @@ export const whyChooseData = {
   buttonLink: "#contact",
 };
 
-export const blogPosts= [
+export const blogPosts = [
   {
-    title:"Expert Tyre Puncture Repair Nearby Dubai",
+    title: "Expert Tyre Puncture Repair Nearby Dubai",
     content: "Need a quick fix for a tyre puncture? Look no further! Find reliable tyre repair services near you in Dubai. Get back on the road in no time.",
     date: "August 23, 2023",
     commentsCount: 0,
     slug: "expert-tyre-puncture-repair-nearby-dubai",
     author: "Monirul Islam",
-    category:"Uncategorized",
-    authorAvatar:""
+    category: "Uncategorized",
+    authorAvatar: ""
   },
   {
     title: "Better Car Fix Near Me In Dubai",
@@ -194,8 +205,8 @@ export const blogPosts= [
     commentsCount: 0,
     slug: "better-car-fix-near-me-in-dubai",
     author: "Monirul Islam",
-    category:"Uncategorized",
-    authorAvatar:""
+    category: "Uncategorized",
+    authorAvatar: ""
   },
   {
     title: "Find The Best Car Mechanic In Dubai",
@@ -204,8 +215,8 @@ export const blogPosts= [
     commentsCount: 0,
     slug: "find-the-best-car-mechanic-in-dubai",
     author: "Monirul Islam",
-    category:"Uncategorized",
-    authorAvatar:""
+    category: "Uncategorized",
+    authorAvatar: ""
   },
   {
     title: "Best Car Repair And Service Center, UAE",
@@ -214,8 +225,8 @@ export const blogPosts= [
     commentsCount: 0,
     slug: "best-car-repair-and-service-center-uae",
     author: "Monirul Islam",
-    category:"Uncategorized",
-    authorAvatar:""
+    category: "Uncategorized",
+    authorAvatar: ""
   },
   {
     title: "Best Car Battery Replacement Near Me",
@@ -224,7 +235,34 @@ export const blogPosts= [
     commentsCount: 0,
     slug: "best-car-battery-replacement-near-me",
     author: "Monirul Islam",
-    category:"Uncategorized",
-    authorAvatar:""
+    category: "Uncategorized",
+    authorAvatar: ""
   },
 ];
+
+export const faqSection = {
+  heading: "Frequently Asked Questions",
+  description: "Find answers to common questions about our car repair services in Dubai.",
+  faqs: [
+    {
+      question: "What types of cars do you service?",
+      answer: "We service all major car brands including Audi, BMW, Mercedes, Porsche, Toyota, Nissan, Ford, and many more. Our technicians are trained to handle various makes and models.",
+    },
+    {
+      question: "Do you offer mobile car repair services?",
+      answer: "Yes, we offer convenient mobile car repair services at your doorstep. Whether you're at home or work, our team can come to you for diagnostics, battery replacement, and minor repairs.",
+    },
+    {
+      question: "How can I book an appointment?",
+      answer: "You can book an appointment by filling out the contact form on our website, calling us directly, or sending us a message on WhatsApp. We offer flexible scheduling to suit your needs.",
+    },
+    {
+      question: "Do you provide a warranty on your repairs?",
+      answer: "Yes, we stand behind our work. We offer a warranty on parts and labor for most repairs. Please ask our service advisor for specific warranty details related to your service.",
+    },
+    {
+      question: "What areas in Dubai do you cover?",
+      answer: "We cover all major areas in Dubai. Our mobile team is equipped to reach you wherever you are located within the city.",
+    },
+  ],
+};

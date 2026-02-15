@@ -43,7 +43,7 @@ export const Navbar = () => {
         </div>
 
         {/* Main Navigation */}
-        <div className="w-full h-20 bg-primary border-b border-gray">
+        <div className="w-full h-20 bg-primary">
           <div className="px-6 md:px-12">
             <div className="flex items-center justify-between h-20">
               {/* Logo */}

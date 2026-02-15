@@ -27,7 +27,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
   if (!slides || slides.length === 0) return null
 
   return (
-    <div className="relative h-screen w-full overflow-hidden pt-16">
+    <div className="relative h-screen w-full overflow-hidden pt-24">
       <Carousel opts={{ loop: true }}>
         <CarouselContent>
           {slides.map((slide) => (

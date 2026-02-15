@@ -1,4 +1,7 @@
+"use client"
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export interface SolutionSectionProps {
   label: string;
@@ -21,6 +24,26 @@ export const SolutionSection = ({
   onSecondaryClick,
   imageUrl,
 }: SolutionSectionProps) => {
+  const router = useRouter();
+
+  const handlePrimaryClick = () => {
+    if (onPrimaryClick) {
+      onPrimaryClick();
+    } else {
+      // Default action for primary button - call phone
+      window.location.href = "tel:+971557767041";
+    }
+  };
+
+  const handleSecondaryClick = () => {
+    if (onSecondaryClick) {
+      onSecondaryClick();
+    } else {
+      // Navigate to services page
+      router.push("/services");
+    }
+  };
+
   return (
     <section className="w-full py-16 px-4 md:px-8 lg:px-16 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -40,16 +63,18 @@ export const SolutionSection = ({
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 items-center justify-center">
+              {/* Primary Button - Call Now */}
               <button
-                className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90"
-                onClick={onPrimaryClick}
+                className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105"
+                onClick={handlePrimaryClick}
               >
                 {primaryButtonText}
               </button>
 
+              {/* Secondary Button - Our Services - Navigates to /services */}
               <button
-                className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90"
-                onClick={onSecondaryClick}
+                className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105"
+                onClick={handleSecondaryClick}
               >
                 {secondaryButtonText}
               </button>
@@ -63,7 +88,7 @@ export const SolutionSection = ({
               height={400}
               src={imageUrl}
               alt="Service showcase"
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
         </div>

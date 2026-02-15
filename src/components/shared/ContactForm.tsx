@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const contactFormSchema = z.object({
   name: z.string().trim().min(1, "Name is required"),
@@ -26,11 +27,18 @@ export const ContactForm = ({
   onSubmit
 }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
   });
 
   const handleSubmitForm = async (data: ContactFormValues) => {
+    if (!captchaVerified) {
+      alert("Please complete the reCAPTCHA verification.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -38,21 +46,33 @@ export const ContactForm = ({
       if (onSubmit) {
         await onSubmit(data);
       } else {
-        // default behavior
-        await fetch("", {
+        // Call our API route
+        const response = await fetch("/api/contact", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify({ ...data, captchaToken }),
         });
+
+        if (!response.ok) {
+          throw new Error("Failed to send message");
+        }
+
         alert("Message sent successfully!");
       }
       reset();
+      setCaptchaVerified(false);
+      setCaptchaToken(null);
     } catch (error) {
       console.log(error);
       alert("Failed to send message. Try again later.");
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const onCaptchaChange = (value: string | null) => {
+    setCaptchaVerified(!!value);
+    setCaptchaToken(value);
   };
 
 
@@ -103,6 +123,14 @@ export const ContactForm = ({
           className="w-full p-3 rounded-lg outline-hidden bg-primary focus:outline-none"
         />
         {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
+      </div>
+
+      {/* ReCAPTCHA */}
+      <div className="flex justify-center">
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+          onChange={onCaptchaChange}
+        />
       </div>
 
       {/* Submit */}
