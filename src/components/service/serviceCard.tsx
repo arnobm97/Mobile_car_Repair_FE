@@ -22,12 +22,13 @@ export const ServiceCard = ({ icon: Icon, title, description }: ServiceCardProps
         {description}
       </p>
 
-      <button
+      <a
+        href="tel:+971557767041"
         className="flex gap-1 justify-center items-center text-accent hover:text-brand/90 font-semibold transition-transform duration-300 group-hover:scale-105"
       >
         <Phone className="w-4 h-4 mr-2 text-brand font-bold" />
         <p className="text-brand font-bold">Call Now</p>
-      </button>
+      </a>
     </div>
   );
 };
