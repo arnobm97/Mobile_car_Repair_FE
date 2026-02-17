@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+
 import Image, { StaticImageData } from "next/image";
 
 interface Brand {

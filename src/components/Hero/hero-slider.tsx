@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-import { ChevronLeft, ChevronRight, Phone, Calendar } from "lucide-react"
+import { ChevronLeft, ChevronRight, Calendar } from "lucide-react"
 import {
   Carousel,
   CarouselContent,
@@ -20,7 +20,7 @@ declare global {
     gtag?: (
       command: string,
       eventName: string,
-      eventParams?: Record<string, any>
+      eventParams?: Record<string, unknown>
     ) => void
   }
 }
@@ -41,14 +41,14 @@ interface HeroSliderProps {
 export function HeroSlider({ slides }: HeroSliderProps) {
   const [api, setApi] = useState<CarouselApi>()
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [count, setCount] = useState(0)
+
 
   useEffect(() => {
     if (!api) {
       return
     }
 
-    setCount(api.scrollSnapList().length)
+
     setCurrentSlide(api.selectedScrollSnap())
 
     api.on("select", () => {
@@ -159,8 +159,8 @@ export function HeroSlider({ slides }: HeroSliderProps) {
               key={index}
               aria-label={`Go to slide ${index + 1}`}
               className={`h-2 rounded-full transition-all duration-300 shadow-md ${currentSlide === index
-                  ? "w-8 bg-red-600"
-                  : "w-2 bg-white/70 hover:bg-white"
+                ? "w-8 bg-red-600"
+                : "w-2 bg-white/70 hover:bg-white"
                 }`}
               onClick={() => api?.scrollTo(index)}
             />

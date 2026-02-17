@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 
 export interface SolutionSectionProps {
@@ -26,14 +26,7 @@ export const SolutionSection = ({
 }: SolutionSectionProps) => {
   const router = useRouter();
 
-  const handlePrimaryClick = () => {
-    if (onPrimaryClick) {
-      onPrimaryClick();
-    } else {
-      // Default action for primary button - call phone
-      window.location.href = "tel:+971557767041";
-    }
-  };
+
 
   const handleSecondaryClick = () => {
     if (onSecondaryClick) {
