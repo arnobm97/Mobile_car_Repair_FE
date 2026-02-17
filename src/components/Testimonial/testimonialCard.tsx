@@ -21,28 +21,39 @@ export const TestimonialCard = ({
   link,
 }: TestimonialCardProps) => {
   const CardContent = (
-    <div className="rounded-sm p-6 h-full flex flex-col shadow-sm hover:shadow-md transition-shadow cursor-pointer">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-12 h-12 rounded-full bg-testimonial-avatar flex items-center justify-center text-white font-semibold">
-          {avatar ? (
-            <Image
-              src={avatar}
-              alt={name}
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="w-full h-full rounded-full object-cover"
-            />
-          ) : (
-            initial || name.charAt(0).toUpperCase()
-          )}
+    <div className="bg-white rounded-xl p-6 h-full flex flex-col shadow-md border border-gray-100 min-h-[300px]">
+      <div className="flex items-start justify-between mb-4">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-full bg-testimonial-avatar flex items-center justify-center text-white font-semibold overflow-hidden">
+            {avatar ? (
+              <Image
+                src={avatar}
+                alt={name}
+                width={48}
+                height={48}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-purple-600 text-white text-lg">
+                {initial || name.charAt(0).toUpperCase()}
+              </div>
+            )}
+          </div>
+          <div>
+            <h4 className="font-bold text-gray-900">{name}</h4>
+            <div className="flex items-center gap-1 text-xs text-gray-500">
+              <span>{date}</span>
+              {/* Checkmark icon next to name/date if needed, but Google usually has it elsewhere. 
+                    The image shows a blue checkmark next to stars maybe? or just part of the design.
+                    Code had BadgeCheck, keeping it near stars or name.
+                */}
+            </div>
+          </div>
         </div>
-        <div className="flex-1">
-          <h4 className="font-semibold text-card-foreground">{name}</h4>
-          <p className="text-xs text-muted-foreground">{date}</p>
-        </div>
+
+        {/* Google G Logo */}
         <svg
-          className="w-5 h-5"
+          className="w-6 h-6"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -66,26 +77,26 @@ export const TestimonialCard = ({
         </svg>
       </div>
 
-      <div className="flex gap-1 mb-3">
+      <div className="flex items-center gap-1 mb-4">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
-            className={`w-4 h-4 ${i < rating
-              ? "fill-yellow-400 text-yellow-400 text-testimonial-star"
-              : "fill-muted text-muted"
+            className={`w-5 h-5 ${i < rating
+              ? "fill-yellow-400 text-yellow-400"
+              : "fill-gray-200 text-gray-200"
               }`}
           />
         ))}
-        <BadgeCheck className="w-5 h-5 fill-blue-700 text-white" />
+        <BadgeCheck className="w-5 h-5 fill-blue-500 text-white ml-2" />
       </div>
 
-      <p className="text-sm text-muted-foreground flex-grow">{review}</p>
+      <p className="text-gray-600 leading-relaxed text-sm flex-grow line-clamp-4">{review}</p>
     </div>
   );
 
   if (link) {
     return (
-      <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full">
+      <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full no-underline hover:no-underline">
         {CardContent}
       </a>
     );

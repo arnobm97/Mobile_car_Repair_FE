@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 import { ChevronLeft, ChevronRight, Phone, Calendar } from "lucide-react"
 import {
   Carousel,
@@ -7,9 +9,10 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi
 } from "@/components/ui/carousel"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 // Extend Window interface to include gtag
 declare global {
@@ -36,7 +39,22 @@ interface HeroSliderProps {
 }
 
 export function HeroSlider({ slides }: HeroSliderProps) {
+  const [api, setApi] = useState<CarouselApi>()
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCount(api.scrollSnapList().length)
+    setCurrentSlide(api.selectedScrollSnap())
+
+    api.on("select", () => {
+      setCurrentSlide(api.selectedScrollSnap())
+    })
+  }, [api])
 
   const handleCTAClick = (slideId: number, buttonText: string) => {
     // Track CTA clicks (you can send this to analytics)
@@ -56,7 +74,9 @@ export function HeroSlider({ slides }: HeroSliderProps) {
   return (
     <div className="relative h-screen w-full overflow-hidden pt-24">
       <Carousel
+        setApi={setApi}
         opts={{ loop: true }}
+        className="w-full h-full"
       >
         <CarouselContent>
           {slides.map((slide) => (
@@ -80,30 +100,25 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                       {slide.id === 3 && "Premium Painting"}
                     </span>
 
-                    <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl xl:text-7xl uppercase leading-tight">
+                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg max-w-4xl leading-tight">
                       {slide.title}
                     </h1>
-
-                    <p className="mb-8 text-base text-white/90 md:text-lg lg:text-xl max-w-2xl">
+                    <p className="text-base md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-4">
                       {slide.description}
                     </p>
-
                     {/* CTA Button Group */}
                     <div className="flex flex-col sm:flex-row gap-4">
                       {/* Primary CTA - Book Now */}
                       <Button
-                        size="lg"
-                        className="group relative bg-red-600 px-8 py-6 text-lg font-semibold text-white hover:bg-red-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl overflow-hidden"
                         asChild
+                        className="bg-brand hover:bg-brand/90 text-white font-bold text-lg py-6 px-8 rounded-full shadow-xl hover:shadow-2xl hover:shadow-brand/50 transition-all duration-300 transform hover:-translate-y-1"
                         onClick={() => handleCTAClick(slide.id, slide.buttonText)}
                       >
-                        <a href={slide.buttonLink} className="flex items-center gap-2">
-                          <Calendar className="h-5 w-5 transition-transform group-hover:rotate-12" />
-                          <span>{slide.buttonText}</span>
-                          <span className="absolute right-0 top-0 h-full w-2 bg-white/20 transform skew-x-12 group-hover:w-full transition-all duration-500 -z-10"></span>
-                        </a>
+                        <Link href={slide.buttonLink} className="flex items-center gap-2">
+                          <Calendar className="w-5 h-5" />
+                          {slide.buttonText}
+                        </Link>
                       </Button>
-
 
                     </div>
 
@@ -129,24 +144,25 @@ export function HeroSlider({ slides }: HeroSliderProps) {
           ))}
         </CarouselContent>
 
-        {/* Navigation Arrows */}
-        <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm hover:bg-white/30 hover:scale-110 transition-all duration-300 z-20">
+        {/* Navigation Arrows - Hidden on Mobile */}
+        <CarouselPrevious className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm hover:bg-white/30 hover:scale-110 transition-all duration-300 z-20">
           <ChevronLeft className="h-6 w-6" />
         </CarouselPrevious>
-        <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm hover:bg-white/30 hover:scale-110 transition-all duration-300 z-20">
+        <CarouselNext className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm hover:bg-white/30 hover:scale-110 transition-all duration-300 z-20">
           <ChevronRight className="h-6 w-6" />
         </CarouselNext>
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          {slides.map((_, index: number) => (
+        {/* Slide Indicators - Mobile Only (md:hidden) */}
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-20 md:hidden">
+          {slides.map((_, index) => (
             <button
               key={index}
-              className={`h-2 rounded-full transition-all duration-300 ${currentSlide === index
-                ? 'w-8 bg-red-600'
-                : 'w-2 bg-white/50 hover:bg-white/80'
+              aria-label={`Go to slide ${index + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 shadow-md ${currentSlide === index
+                  ? "w-8 bg-red-600"
+                  : "w-2 bg-white/70 hover:bg-white"
                 }`}
-              onClick={() => {/* Navigate to slide */ }}
+              onClick={() => api?.scrollTo(index)}
             />
           ))}
         </div>

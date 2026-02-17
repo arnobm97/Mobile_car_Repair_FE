@@ -26,7 +26,7 @@ const BlogCard = ({
         <div className="py-6 px-4">
           <Link
             href={`/${slug}`}
-            className="text-md font-semibold mb-4 cursor-pointer"
+            className="text-lg md:text-xl font-semibold mb-4 cursor-pointer hover:text-brand transition-colors block"
           >
             {title}
           </Link>

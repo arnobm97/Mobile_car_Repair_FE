@@ -28,9 +28,19 @@ export const ContactSection = ({
   return (
     <section className="py-2 bg-section">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Contact Us
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Get in touch with us for any questions or inquiries. We are here to help you 24/7.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Form Section */}
-          <div className="bg-accent p-8 lg:p-10 rounded-lg">
+          <div className="bg-accent p-6 md:p-8 lg:p-10 rounded-lg">
             <ContactForm onSubmit={onFormSubmit} submitButtonText={submitButtonText} />
           </div>
 

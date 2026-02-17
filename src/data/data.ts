@@ -67,9 +67,10 @@ export const solutionSection = {
   imageUrl: Solutionshowcare.src,
 };
 
+// Services Section
 export const servicesSection = {
+  heading: "Our Services",
   label: "What We Do",
-  heading: "Best Car Repair Service In Dubai",
   services: [
     { title: "Mobile Car Package", description: "Convenient mobile car services at your doorstep.", icon: Car },
     { title: "Car Painting", description: "Professional car painting for a fresh, new look.", icon: Settings },

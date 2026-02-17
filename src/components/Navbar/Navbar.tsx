@@ -1,5 +1,6 @@
 "use client";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, Calendar } from "lucide-react";
+import { Button } from "@/components/ui/button"; // Make sure this path is correct
 import logo from "@/images/MobileCarRepairService.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -69,21 +70,30 @@ export const Navbar = () => {
                 ))}
               </div>
 
-              {/* Desktop Book Now Button */}
-              <Link
-                href="/contact-us"
-                className="hidden md:flex bg-red-600 px-6 py-2 text-white font-bold hover:bg-red-700 transition-colors"
+              {/* Desktop Book Now Button - Using shadcn Button */}
+              <Button
+                size="lg"
+                className="hidden md:flex group relative bg-red-600 px-8 py-6 text-lg font-semibold text-white hover:bg-red-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl overflow-hidden"
+                asChild
               >
-                Book Now
-              </Link>
-              {/* Mobile: Phone + Book Now + Menu Toggle */}
-              <div className="flex md:hidden items-center gap-3">
-                <Link
-                  href="/contact-us"
-                  className="bg-red-600 px-6 py-2 text-white font-bold hover:bg-red-700 transition-colors"
-                >
-                  Book Now
+                <Link href="/contact-us" className="flex items-center gap-2">
+                  <Calendar className="h-5 w-5 transition-transform group-hover:rotate-12" />
+                  <span>Book Now</span>
+                  <span className="absolute right-0 top-0 h-full w-2 bg-white/20 transform skew-x-12 group-hover:w-full transition-all duration-500 -z-10"></span>
                 </Link>
+              </Button>
+
+              {/* Mobile Menu Controls */}
+              <div className="flex md:hidden items-center gap-3">
+                <Button
+                  size="sm"
+                  className="bg-red-600 px-4 py-2 text-white font-bold hover:bg-red-700 transition-colors"
+                  asChild
+                >
+                  <Link href="/contact-us">
+                    Book Now
+                  </Link>
+                </Button>
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="text-white p-2 bg-brand font-bold"
@@ -102,19 +112,36 @@ export const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-black text-white font-bold">
-            <div className="mx-auto">
+          <div className="md:hidden z-100 absolute top-20 left-0 w-full bg-black/95 backdrop-blur-sm text-white flex flex-col items-start py-4 shadow-xl border-t border-white/10 h-screen transition-all duration-300 ease-in-out">
+            <div className="w-full flex flex-col">
               {navLinks.map((link) => (
                 <Link
-                  key={link.path}
+                  key={link.name}
                   href={link.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-4 py-4 hover:bg-brand transition-colors ${isActive(link.path) ? "bg-brand text-white" : ""
+                  className={`w-full text-xl font-bold py-4 px-8 border-b border-white/5 transition-all duration-300
+                  ${isActive(link.path)
+                      ? "bg-red-600 text-white"
+                      : "text-white hover:bg-red-600 hover:text-white hover:pl-10"
                     }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
+            </div>
+
+            <div className="w-full px-8 mt-8">
+              <Button
+                variant="default"
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-6 rounded-lg shadow-lg flex items-center justify-center gap-2 text-lg"
+                onClick={() => setIsMobileMenuOpen(false)}
+                asChild
+              >
+                <Link href="/contact-us">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Book Now
+                </Link>
+              </Button>
             </div>
           </div>
         )}

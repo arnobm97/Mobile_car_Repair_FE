@@ -16,16 +16,15 @@ export const PageHero = ({
   titleClassName,
 }: PageHeroProps) => {
   return (
-    <div className="relative h-[200px] w-full overflow-hidden">
+    <div className="relative h-[200px] md:h-[300px] lg:h-[350px] w-full overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: `url(${
-            typeof backgroundImage === "string"
+          backgroundImage: `url(${typeof backgroundImage === "string"
               ? backgroundImage
               : backgroundImage.src
-          })`,
+            })`,
         }}
       >
         <div className="absolute inset-0 bg-black/60" />
@@ -34,9 +33,8 @@ export const PageHero = ({
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-4">
         <h1
-          className={`mb-4 font-bold text-white uppercase tracking-wider ${
-            titleClassName || "text-2xl md:text-4xl"
-          }`}
+          className={`mb-4 font-bold text-white uppercase tracking-wider ${titleClassName || "text-2xl md:text-4xl"
+            }`}
         >
           {title}
         </h1>
