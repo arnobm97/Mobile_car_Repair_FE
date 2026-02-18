@@ -137,7 +137,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                     </div>
 
                     {/* Trust Badges */}
-                    <div className="mt-8 flex items-center justify-center gap-6 text-white/80">
+                    {/* <div className="mt-8 flex items-center justify-center gap-6 text-white/80">
                       <div className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></div>
                         <span className="text-sm">24/7 Service</span>
@@ -150,7 +150,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                         <div className="h-2 w-2 rounded-full bg-yellow-400"></div>
                         <span className="text-sm">Free Inspection</span>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

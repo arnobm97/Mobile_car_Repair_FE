@@ -45,6 +45,20 @@ export const Navbar = () => {
           </div>
         </div>
 
+        {/* Top Bar - Mobile & Tablet Only */}
+        <div className="md:hidden bg-brand text-white">
+          <div className="py-2 flex justify-center items-center">
+            <a
+              href="tel:+971557767041"
+              className="flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
+            >
+              <Phone className="w-4 h-4" />
+              +971557767041
+            </a>
+          </div>
+        </div>
+
         {/* Main Navigation */}
         <div className="w-full h-20 bg-primary font-montserrat">
           <div className="px-6 md:px-12">
