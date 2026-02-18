@@ -43,7 +43,7 @@ export const BrandsSection = ({ heading, description, brands }: BrandsSectionPro
               </div>
             ))}
 
-            {/* Duplicated Brands for seamless loop */}
+
             {brands.map((brand, index) => (
               <div
                 key={`brand-dup-${index}`}
