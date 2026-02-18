@@ -1,6 +1,6 @@
 "use client";
-import { Menu, X, Phone, Mail, Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button"; // Make sure this path is correct
+import { Menu, X, Phone, Mail } from "lucide-react";
+
 import logo from "@/images/MobileCarRepairService.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -72,30 +72,18 @@ export const Navbar = () => {
                 ))}
               </div>
 
-              {/* Desktop Book Now Button - Using shadcn Button */}
-              <Button
-                size="lg"
-                className="hidden font-montserrat font-montserrat md:flex group relative bg-red-600 px-8 py-6 text-lg font-semibold text-white hover:bg-red-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl overflow-hidden"
-                asChild
+              {/* Desktop Book Now Button */}
+              <Link
+                href="/contact-us"
+                className="hidden md:inline-block font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105"
+                style={{ fontFamily: 'Montserrat, sans-serif' }}
               >
-                <Link href="/contact-us" className="flex items-center gap-2 font-montserrat">
-                  <Calendar className="h-5 w-5 transition-transform group-hover:rotate-12" />
-                  <span>Book Now</span>
-                  <span className="absolute right-0 top-0 h-full w-2 bg-white/20 transform skew-x-12 group-hover:w-full transition-all duration-500 -z-10"></span>
-                </Link>
-              </Button>
+                Book Now
+              </Link>
 
               {/* Mobile Menu Controls */}
               <div className="flex md:hidden items-center gap-3">
-                <Button
-                  size="sm"
-                  className="bg-red-600 px-4 py-2 text-white font-bold hover:bg-red-700 transition-colors font-montserrat"
-                  asChild
-                >
-                  <Link href="/contact-us">
-                    Book Now
-                  </Link>
-                </Button>
+
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="text-white p-2 bg-brand font-bold"
@@ -132,19 +120,7 @@ export const Navbar = () => {
               ))}
             </div>
 
-            <div className="w-full px-8 mt-8">
-              <Button
-                variant="default"
-                className="w-full font-montserrat bg-red-600 hover:bg-red-700 text-white font-bold py-6 rounded-lg shadow-lg flex items-center justify-center gap-2 text-lg"
-                onClick={() => setIsMobileMenuOpen(false)}
-                asChild
-              >
-                <Link href="/contact-us font-montserrat">
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book Now
-                </Link>
-              </Button>
-            </div>
+
           </div>
         )}
       </div>

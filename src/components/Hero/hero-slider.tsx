@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-import { ChevronLeft, ChevronRight, Calendar } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import {
   Carousel,
   CarouselContent,
@@ -11,7 +11,7 @@ import {
   CarouselPrevious,
   type CarouselApi
 } from "@/components/ui/carousel"
-import { Button } from "@/components/ui/button"
+
 import { useState, useEffect } from "react"
 
 // Extend Window interface to include gtag
@@ -114,18 +114,26 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                     </p>
                     {/* CTA Button Group */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      {/* Primary CTA - Book Now */}
-                      <Button
-                        asChild
-                        className="bg-brand hover:bg-brand/90 text-white font-bold text-lg py-6 px-8 rounded-full shadow-xl hover:shadow-2xl hover:shadow-brand/50 transition-all duration-300 transform hover:-translate-y-1"
-                        onClick={() => handleCTAClick(slide.id, slide.buttonText)}
-                      >
-                        <Link href={slide.buttonLink} className="flex items-center gap-2">
-                          <Calendar className="w-5 h-5" />
+                      {/* Primary CTA - Call Us Now */}
+                      {slide.buttonLink.startsWith('tel:') ? (
+                        <a
+                          href={slide.buttonLink}
+                          className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105 inline-block text-center"
+                          style={{ fontFamily: 'Montserrat, sans-serif' }}
+                          onClick={() => handleCTAClick(slide.id, slide.buttonText)}
+                        >
+                          {slide.buttonText}
+                        </a>
+                      ) : (
+                        <Link
+                          href={slide.buttonLink}
+                          className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105 inline-block text-center"
+                          style={{ fontFamily: 'Montserrat, sans-serif' }}
+                          onClick={() => handleCTAClick(slide.id, slide.buttonText)}
+                        >
                           {slide.buttonText}
                         </Link>
-                      </Button>
-
+                      )}
                     </div>
 
                     {/* Trust Badges */}
