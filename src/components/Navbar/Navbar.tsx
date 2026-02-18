@@ -116,8 +116,8 @@ export const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden font-montserrat z-100 absolute top-20 left-0 w-full bg-black/95 backdrop-blur-sm text-white flex flex-col items-start py-4 shadow-xl border-t border-white/10 h-screen transition-all duration-300 ease-in-out">
-            <div className="w-full flex flex-col font-montserrat">
+          <div className="md:hidden font-montserrat z-100 absolute top-28 left-0 w-full bg-black/95 backdrop-blur-sm text-white flex flex-col items-start py-4 shadow-xl border-t border-white/10 h-screen transition-all duration-300 ease-in-out">
+            <div className="w-full flex flex-col font-montserrat ">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
