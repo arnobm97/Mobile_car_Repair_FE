@@ -14,7 +14,7 @@ interface BrandsSectionProps {
 
 export const BrandsSection = ({ heading, description, brands }: BrandsSectionProps) => {
   return (
-    <section className="py-16 bg-white overflow-hidden">
+    <section className="py-16 bg-gray-100 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{heading}</h2>
@@ -30,7 +30,7 @@ export const BrandsSection = ({ heading, description, brands }: BrandsSectionPro
             {brands.map((brand, index) => (
               <div
                 key={`brand-${index}`}
-                className="flex items-center justify-center w-[150px] h-[150px] bg-white rounded-lg p-4 transition-transform duration-300 hover:scale-110"
+                className="flex items-center justify-center w-[150px] h-[150px] bg-gray-100 rounded-lg p-4 transition-transform duration-300 hover:scale-110"
               >
                 <div className="relative w-full h-full">
                   <Image

@@ -75,7 +75,7 @@ export const SolutionSection = ({
           </div>
 
           {/* Right Image with Overlay */}
-          <div className="rounded-lg overflow-hidden group order-2 lg:order-2 shadow-2xl">
+          <div className=" overflow-hidden group order-2 lg:order-2 shadow-2xl">
             <Image
               width={1920}
               height={400}

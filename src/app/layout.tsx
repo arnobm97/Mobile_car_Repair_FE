@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { Footer } from "@/components/footer/footer";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
+import { RecaptchaProvider } from "@/components/shared/RecaptchaProvider";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -36,10 +37,12 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${montserrat.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <WhatsAppButton />
-        <Footer />
+        <RecaptchaProvider>
+          <Navbar />
+          {children}
+          <WhatsAppButton />
+          <Footer />
+        </RecaptchaProvider>
       </body>
     </html>
   );

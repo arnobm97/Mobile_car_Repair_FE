@@ -26,7 +26,7 @@ export const ContactSection = ({
   submitButtonText,
 }: ContactSectionProps) => {
   return (
-    <section className="py-2 bg-section">
+    <section className="lg:py-20 py-10 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -40,7 +40,7 @@ export const ContactSection = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Form Section */}
-          <div className="bg-accent p-6 md:p-8 lg:p-10 rounded-lg">
+          <div className="bg-accent p-6 md:p-8 lg:p-10 rounded-none ">
             <ContactForm onSubmit={onFormSubmit} submitButtonText={submitButtonText} />
           </div>
 
@@ -56,7 +56,7 @@ export const ContactSection = ({
             <div className="space-y-6">
               {contactInfo.location && (
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-brand flex items-center justify-center">
                     <MapPin className="w-7 h-7 text-primary" />
                   </div>
                   <div>
@@ -72,7 +72,7 @@ export const ContactSection = ({
 
               {contactInfo.email && (
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-brand  flex items-center justify-center">
                     <Mail className="w-7 h-7 text-primary" />
                   </div>
                   <div>
@@ -91,7 +91,7 @@ export const ContactSection = ({
 
               {contactInfo.phone && (
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-brand flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-brand flex items-center justify-center">
                     <Phone className="w-7 h-7 text-primary" />
                   </div>
                   <div>

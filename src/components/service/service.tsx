@@ -13,7 +13,7 @@ export const ServicesSection = ({
     services,
 }: ServicesSectionProps) => {
     return (
-        <section className="w-full py-16 px-4 md:px-8 lg:px-16">
+        <section className="w-full py-16 px-6 md:px-8 lg:px-16">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-12">

@@ -19,7 +19,7 @@ export async function POST(request: Request) {
         const verificationResponse = await fetch(verificationUrl, { method: 'POST' });
         const verificationData = await verificationResponse.json();
 
-        if (!verificationData.success) {
+        if (!verificationData.success || verificationData.score < 0.5) {
             return NextResponse.json(
                 { error: 'reCAPTCHA verification failed' },
                 { status: 400 }

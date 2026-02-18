@@ -94,11 +94,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                 <div className="relative z-10 flex h-full items-center justify-center px-4 md:px-8 lg:px-16">
                   <div className="max-w-3xl w-full text-center animate-fadeIn">
                     {/* Slide Indicator */}
-                    <span className="mb-4 inline-block rounded-full bg-red-600 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
-                      {slide.id === 1 && "Complete Car Care"}
-                      {slide.id === 2 && "Expert Repairs"}
-                      {slide.id === 3 && "Premium Painting"}
-                    </span>
+
 
                     <h1
                       className="text-3xl md:text-5xl lg:text-6xl text-white mb-6 tracking-wide drop-shadow-lg max-w-4xl mx-auto leading-tight"
