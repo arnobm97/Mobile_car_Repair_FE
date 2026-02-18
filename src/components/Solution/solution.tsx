@@ -47,11 +47,11 @@ export const SolutionSection = ({
               {label}
             </p>
 
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
               {heading}
             </h2>
 
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-muted-foreground text-sm md:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
               {description}
             </p>
 
@@ -66,7 +66,7 @@ export const SolutionSection = ({
 
               {/* Secondary Button - Our Services - Navigates to /services */}
               <button
-                className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105"
+                className="font-semibold bg-brand py-2 px-5 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105"
                 onClick={handleSecondaryClick}
               >
                 {secondaryButtonText}

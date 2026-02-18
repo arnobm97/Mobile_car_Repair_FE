@@ -21,14 +21,12 @@ export const TestimonialsSection = ({
 }: TestimonialsSectionProps) => {
   const [api, setApi] = useState<CarouselApi>()
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [count, setCount] = useState(0)
 
   useEffect(() => {
     if (!api) {
       return
     }
 
-    setCount(api.scrollSnapList().length)
     setCurrentSlide(api.selectedScrollSnap())
 
     api.on("select", () => {
@@ -37,46 +35,44 @@ export const TestimonialsSection = ({
   }, [api])
 
   return (
-    <section className="w-full py-24 px-4 md:px-8 lg:px-16 bg-white overflow-hidden">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-
-          {/* Left Column: Text Content + Rating */}
-          <div className="lg:col-span-4 space-y-8">
-            <div>
-              <p className="text-red-600 font-medium text-lg mb-2">
-                {label}
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-navy-900 leading-tight">
-                {heading}
-              </h2>
-            </div>
-
-            <p className="text-gray-600 text-lg leading-relaxed">
+    <section className="w-full py-16 px-4 md:px-8 lg:px-16 bg-white overflow-hidden">
+      <div className="container mx-auto font-poppins">
+        {/* Header Row */}
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-16 text-center max-[798px]:items-center lg:text-left">
+          <div className="lg:w-1/2 w-full">
+            <p className="text-red-500 font-medium text-base mb-2">
+              {label}
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1a2b3c] leading-tight">
+              {heading}
+            </h2>
+          </div>
+          <div className="lg:w-1/2 w-full pt-4 lg:pt-8 flex justify-center lg:justify-end">
+            <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl">
               We take pride in delivering <span className="font-bold text-black">exceptional services</span> and ensuring the best experience for our valued customers. Their trust and satisfaction fuel our commitment to excellence.
             </p>
+          </div>
+        </div>
 
-            {/* Google Rating Block */}
-            <div className="pt-4">
-              <div className="flex items-center gap-4 mb-2">
-                <h3 className="text-2xl font-bold text-black uppercase tracking-wide">EXCELLENT</h3>
-                <div className="flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-6 h-6 fill-yellow-400 text-yellow-400"
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 mb-6">
-                <span className="text-gray-500 text-sm">Based on </span>
-                <span className="font-bold text-black text-sm">{totalReviews} reviews</span>
-                <span className="text-gray-500 text-sm">on</span>
-                {/* Google Logo */}
+        {/* Body Row: Rating Block + Carousel */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Left: Overall Rating Block */}
+          <div className="lg:col-span-3 flex flex-col items-center justify-center space-y-2 text-center">
+            <h3 className="text-xl font-bold text-black tracking-wider">EXCELLENT</h3>
+            <div className="flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="w-8 h-8 fill-yellow-400 text-yellow-400"
+                />
+              ))}
+            </div>
+            <div className="flex flex-col items-center">
+              <span className="text-gray-700 text-sm font-semibold">Based on <span className="text-black">{totalReviews} reviews</span></span>
+              {/* Google Logo */}
+              <div className="mt-2">
                 <svg
-                  className="w-16 h-6 inline-block ml-1"
+                  className="w-24 h-8"
                   viewBox="0 0 272 92"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -104,12 +100,11 @@ export const TestimonialsSection = ({
                   />
                 </svg>
               </div>
-
             </div>
           </div>
 
-          {/* Right Column: Carousel */}
-          <div className="lg:col-span-8 relative">
+          {/* Right: Carousel */}
+          <div className="lg:col-span-9 relative">
             <Carousel
               setApi={setApi}
               opts={{
@@ -118,33 +113,29 @@ export const TestimonialsSection = ({
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-6">
+              <CarouselContent className="-ml-4">
                 {testimonials.map((testimonial, index) => (
-                  <CarouselItem key={index} className="pl-6 md:basis-1/2 lg:basis-1/2">
+                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                     <TestimonialCard {...testimonial} />
                   </CarouselItem>
                 ))}
               </CarouselContent>
 
               {/* Navigation Arrows - Hidden on Mobile */}
-              <div className="hidden md:flex absolute top-1/2 -translate-y-1/2 left-0 w-full justify-between px-2 md:px-0 z-20 pointer-events-none">
-                <CarouselPrevious className="relative left-auto top-auto translate-y-0 h-10 w-10 md:h-12 md:w-12 rounded-full bg-white shadow-lg border border-gray-100 text-gray-800 hover:text-red-600 hover:bg-white pointer-events-auto transition-all md:-translate-x-1/2" />
-                <CarouselNext className="relative right-auto top-auto translate-y-0 h-10 w-10 md:h-12 md:w-12 rounded-full bg-white shadow-lg border border-gray-100 text-gray-800 hover:text-red-600 hover:bg-white pointer-events-auto transition-all md:translate-x-1/2" />
-              </div>
+              <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-white shadow-md border border-gray-100 text-gray-800 hover:text-red-600 transition-all z-20 hidden md:flex" />
+              <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-white shadow-md border border-gray-100 text-gray-800 hover:text-red-600 transition-all z-20 hidden md:flex" />
 
-              {/* Slide Indicators - Mobile Only (md:hidden) */}
-              <div className="flex justify-center gap-2 mt-8 md:hidden">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    aria-label={`Go to slide ${index + 1}`}
-                    className={`h-2 rounded-full transition-all duration-300 shadow-md ${currentSlide === index
-                      ? "w-8 bg-red-600"
-                      : "w-2 bg-gray-300 hover:bg-gray-400"
-                      }`}
-                    onClick={() => api?.scrollTo(index)}
+              {/* Mobile Scroll Indicator (Progress Bar) */}
+              <div className="mt-8 flex justify-center w-full md:hidden">
+                <div className="w-32 h-[3px] bg-gray-200 relative overflow-hidden">
+                  <div
+                    className="absolute top-0 left-0 h-full bg-gray-500 transition-all duration-300"
+                    style={{
+                      width: `${(1 / testimonials.length) * 100}%`,
+                      transform: `translateX(${currentSlide * 100}%)`
+                    }}
                   />
-                ))}
+                </div>
               </div>
             </Carousel>
           </div>

@@ -65,7 +65,7 @@ export const Navbar = () => {
 
         {/* Main Navigation */}
         <div className="w-full h-[57px] md:h-20 bg-primary font-montserrat">
-          <div className="px-4 md:px-12 lg:px-16 xl:px-24 2xl:px-72 min-[1751px]:px-72">
+          <div className="px-3 md:px-12 lg:px-16 xl:px-24 2xl:px-72 min-[1751px]:px-72">
             <div className="flex items-center justify-between h-[57px] md:h-20">
               {/* Logo */}
               <Link href="/" className="flex-shrink-0">
@@ -121,13 +121,8 @@ export const Navbar = () => {
               </Link>
 
               {/* Mobile Menu Controls */}
-              <div className="flex md:hidden items-center gap-3">
-                <Link
-                  href="/contact-us"
-                  className="bg-brand text-white px-4 py-1.5 text-sm font-semibold rounded-md"
-                >
-                  Book Now
-                </Link>
+              <div className="flex md:hidden items-center gap-2">
+
                 <button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                   className="text-white p-2 bg-brand font-bold rounded-md"

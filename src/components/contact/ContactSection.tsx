@@ -26,13 +26,10 @@ export const ContactSection = ({
   submitButtonText,
 }: ContactSectionProps) => {
   return (
-    <section className="lg:py-20 py-10 bg-white">
+    <section className="lg:py-20 py-12 bg-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-12">
 
-
-        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Form Section */}
@@ -43,8 +40,8 @@ export const ContactSection = ({
           {/* Contact Info Section */}
           <div className="flex flex-col space-y-8 p-8">
             <div>
-              <p className="text-accent text-md font-3xl mb-2 text-brand">{label}</p>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
+              <p className="text-accent text-sm font-bold mb-2 text-brand">{label}</p>
+              <h2 className="md:text-2xl lg:text-4xl font-bold max-[399px]:text-lg text-foreground">
                 {heading}
               </h2>
             </div>
@@ -52,14 +49,14 @@ export const ContactSection = ({
             <div className="space-y-6">
               {contactInfo.location && (
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-brand flex items-center justify-center">
-                    <MapPin className="w-7 h-7 text-primary" />
+                  <div className="flex-shrink-0 w-12 lg:w-12 lg:h-12 md:w-12 md:h-12 max-[399px]:w-10 max-[399px]:h-10 h-12 max-[399px]:text-lg bg-brand flex items-center justify-center">
+                    <MapPin className="lg:w-7 lg:h-7 md:w-7 md:h-7 max-[399px]:w-5 max-[399px]:h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground text-lg mb-1">
+                    <h3 className="font-bold text-foreground lg:text-lg md:text-lg max-[399px]:text-xs mb-1">
                       {contactInfo.location.title}
                     </h3>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground lg:text-lg md:text-lg max-[399px]:text-xs ">
                       {contactInfo.location.address}
                     </p>
                   </div>
@@ -68,16 +65,16 @@ export const ContactSection = ({
 
               {contactInfo.email && (
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-brand  flex items-center justify-center">
-                    <Mail className="w-7 h-7 text-primary" />
+                  <div className="flex-shrink-0 w-12 h-12 lg:w-12 lg:h-12 md:w-12 md:h-12 max-[399px]:w-10 max-[399px]:h-10 bg-brand lg:text-lg md:text-lg max-[399px]:text-xs  flex items-center justify-center">
+                    <Mail className="lg:w-7 lg:h-7 md:w-7 md:h-7 max-[399px]:w-5 max-[399px]:h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground text-lg mb-1">
+                    <h3 className="font-bold text-foreground lg:text-lg md:text-lg max-[399px]:text-xs  mb-1">
                       Email
                     </h3>
                     <a
                       href={`mailto:${contactInfo.email}`}
-                      className="text-muted-foreground hover:text-accent transition-colors"
+                      className="text-muted-foreground hover:text-accent transition-colors lg:text-lg md:text-lg max-[399px]:text-xs"
                     >
                       {contactInfo.email}
                     </a>
@@ -87,16 +84,16 @@ export const ContactSection = ({
 
               {contactInfo.phone && (
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-brand flex items-center justify-center">
-                    <Phone className="w-7 h-7 text-primary" />
+                  <div className="flex-shrink-0 lg:w-12 lg:h-12 md:w-12 md:h-12 max-[399px]:w-10 max-[399px]:h-10 bg-brand lg:text-lg md:text-lg max-[399px]:text-xs  flex items-center justify-center">
+                    <Phone className="lg:w-7 lg:h-7 md:w-7 md:h-7 max-[399px]:w-5 max-[399px]:h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground text-lg mb-1">
+                    <h3 className="font-bold text-foreground lg:text-lg md:text-lg max-[399px]:text-xs  mb-1">
                       Call / Whatsapp
                     </h3>
                     <a
                       href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
-                      className="text-muted-foreground hover:text-accent transition-colors"
+                      className="text-muted-foreground hover:text-accent transition-colors lg:text-lg md:text-lg max-[399px]:text-xs"
                     >
                       {contactInfo.phone}
                     </a>

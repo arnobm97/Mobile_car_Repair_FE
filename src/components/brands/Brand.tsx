@@ -17,8 +17,8 @@ export const BrandsSection = ({ heading, description, brands }: BrandsSectionPro
     <section className="py-16 bg-gray-100 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{heading}</h2>
-          <p className="text-gray-600 font-medium max-w-4xl mx-auto leading-relaxed">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-bold text-gray-900 mb-4">{heading}</h2>
+          <p className="text-gray-600 font-medium max-w-4xl mx-auto leading-relaxed text-sm sm:text-base md:text-lg">
             {description}
           </p>
         </div>

@@ -25,10 +25,10 @@ export const FAQSection = ({ heading, description, faqs }: FAQSectionProps) => {
     return (
         <section className="py-16 bg-secondary">
             <div className="container mx-auto px-4 max-w-4xl">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand">{heading}</h2>
+                <div className="text-center mb-8 sm:mb-12">
+                    <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand">{heading}</h2>
                     {description && (
-                        <p className="text-lg text-muted-foreground">{description}</p>
+                        <p className="text-sm sm:text-base md:text-lg text-muted-foreground">{description}</p>
                     )}
                 </div>
 
@@ -39,10 +39,10 @@ export const FAQSection = ({ heading, description, faqs }: FAQSectionProps) => {
                             className="border border-gray-200 rounded-lg bg-primary overflow-hidden shadow-sm"
                         >
                             <button
-                                className="w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none"
+                                className="w-full px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between text-left focus:outline-none"
                                 onClick={() => toggleFAQ(index)}
                             >
-                                <span className="font-semibold text-lg text-foreground pr-8">
+                                <span className="font-semibold text-base sm:text-lg text-foreground pr-4 sm:pr-8">
                                     {faq.question}
                                 </span>
                                 {openIndex === index ? (
@@ -56,7 +56,7 @@ export const FAQSection = ({ heading, description, faqs }: FAQSectionProps) => {
                                 className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                                     }`}
                             >
-                                <div className="px-6 pb-4 text-muted-foreground">
+                                <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-sm sm:text-base text-muted-foreground">
                                     <p>{faq.answer}</p>
                                 </div>
                             </div>

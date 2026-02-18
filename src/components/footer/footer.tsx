@@ -44,16 +44,16 @@ export const Footer = ({
           {/* Company Info */}
           <div className="space-y-6">
             <Link href="/" className="inline-block">
-              <Image src={logo} alt={companyName} className="h-16 w-auto" />
+              <Image src={logo} alt={companyName} className="lg:h-16 md:h-12 sm:h-10 h-10 w-auto" />
             </Link>
-            <p className="text-white text-sm leading-relaxed max-w-sm">
+            <p className="text-white text-sm max-[799px]:text-xs leading-relaxed max-w-sm">
               {description}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h3 className="text-xl font-bold text-white relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-brand">
+            <h3 className="text-xl max-[799px]:text-lg font-bold text-white relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-brand">
               Quick Links
             </h3>
             <nav className="flex flex-col space-y-3 pt-2">
@@ -61,7 +61,7 @@ export const Footer = ({
                 <Link
                   key={index}
                   href={link.href}
-                  className="font-medium text-white hover:text-brand transition-colors text-sm flex items-center gap-2"
+                  className="font-medium text-white hover:text-brand transition-colors text-sm max-[799px]:text-xs flex items-center gap-2"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-brand/50"></span>
                   {link.label}
@@ -72,17 +72,17 @@ export const Footer = ({
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h3 className="text-xl font-bold text-white relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-brand">
+            <h3 className="text-xl max-[799px]:text-lg font-bold text-white relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-brand">
               Contact Info
             </h3>
             <div className="space-y-4 pt-2">
               <div className="flex items-start gap-4 text-white group">
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand transition-colors duration-300">
-                  <MapPin className="w-5 h-5 text-brand group-hover:text-white transition-colors" />
+                <div className="flex-shrink-0 w-12 h-12 max-[799px]:w-10 max-[799px]:h-10 bg-brand flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <MapPin className="w-7 h-7 max-[799px]:w-5 max-[799px]:h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white mb-1">Address</p>
-                  <p className="text-sm">Near New Big Mosque, Al-Satwa, Dubai</p>
+                  <p className="text-sm max-[799px]:text-xs font-semibold text-white mb-1">Address</p>
+                  <p className="text-sm max-[799px]:text-xs">Near New Big Mosque, Al-Satwa, Dubai</p>
                 </div>
               </div>
 
@@ -90,12 +90,12 @@ export const Footer = ({
                 href={`tel:${phone}`}
                 className="flex items-center gap-4 text-white hover:text-white transition-colors group"
               >
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand transition-colors duration-300">
-                  <Phone className="w-5 h-5 text-brand group-hover:text-white transition-colors" />
+                <div className="flex-shrink-0 w-12 h-12 max-[799px]:w-10 max-[799px]:h-10 bg-brand flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <Phone className="w-7 h-7 max-[799px]:w-5 max-[799px]:h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white mb-1">Call Us</p>
-                  <p className="text-sm group-hover:text-brand transition-colors">{phone}</p>
+                  <p className="text-sm max-[799px]:text-xs font-semibold text-white mb-1">Call Us</p>
+                  <p className="text-sm max-[799px]:text-xs group-hover:text-brand transition-colors">{phone}</p>
                 </div>
               </a>
 
@@ -103,75 +103,76 @@ export const Footer = ({
                 href={`mailto:${email}`}
                 className="flex items-center gap-4 text-white hover:text-white transition-colors group"
               >
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-brand transition-colors duration-300">
-                  <Mail className="w-5 h-5 text-brand group-hover:text-white transition-colors" />
+                <div className="flex-shrink-0 w-12 h-12 max-[799px]:w-10 max-[799px]:h-10 bg-brand flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <Mail className="w-7 h-7 max-[799px]:w-5 max-[799px]:h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white mb-1">Email Us</p>
-                  <p className="text-sm break-all group-hover:text-brand transition-colors">{email}</p>
+                  <p className="text-sm max-[799px]:text-xs font-semibold text-white mb-1">Email Us</p>
+                  <p className="text-sm max-[799px]:text-xs break-all group-hover:text-brand transition-colors">{email}</p>
                 </div>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="py-6 border-t border-gray-800 bg-black -mx-4 px-4">
-          <div className="container mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-4">
-            {/* Mobile: Icons above text (using flex-col-reverse) */}
-            <div className="flex flex-col items-center md:items-start gap-3 w-full md:w-auto">
-              {showSocialLinks && (
-                <div className="flex items-center gap-4 md:hidden order-first mb-2">
-                  <a
-                    href={facebookUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="w-5 h-5" />
-                  </a>
-                  <a
-                    href={instagramUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-5 h-5" />
-                  </a>
-                </div>
-              )}
+      </div>
 
-              <p className="text-sm text-white text-center md:text-left">
-                © {currentYear} <span className="text-white font-medium">{companyName}</span>. All rights reserved.
-              </p>
-            </div>
-
-            {/* Desktop Social Links (hidden on mobile) */}
+      {/* Bottom Bar - Moved outside the main container to be truly full width */}
+      <div className="py-6 border-t border-gray-800 bg-black w-full px-4">
+        <div className="container mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-4">
+          {/* Mobile: Icons above text (using flex-col-reverse) */}
+          <div className="flex flex-col lg:items-center md:items-start gap-3 w-full md:w-auto">
             {showSocialLinks && (
-              <div className="hidden md:flex items-center gap-4">
+              <div className="flex items-center gap-4 md:hidden order-first mb-2">
                 <a
                   href={facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
+                  className=" max-[799px]:w-8 max-[799px]:h-8 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
                   aria-label="Facebook"
                 >
-                  <Facebook className="w-4 h-4" />
+                  <Facebook className="w-5 h-5" />
                 </a>
                 <a
                   href={instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
+                  className="max-[799px]:w-8 max-[799px]:h-8 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
                   aria-label="Instagram"
                 >
-                  <Instagram className="w-4 h-4" />
+                  <Instagram className="w-5 h-5" />
                 </a>
               </div>
             )}
+
+            <p className="max-[799px]:text-[10px] max-[799px]:text-left text-white text-center md:text-left">
+              © {currentYear} <span className="text-white font-medium">{companyName}</span>. All rights reserved.
+            </p>
           </div>
+
+          {/* Desktop Social Links (hidden on mobile) */}
+          {showSocialLinks && (
+            <div className="hidden md:flex items-center gap-4">
+              <a
+                href={facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </footer>

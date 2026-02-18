@@ -28,6 +28,7 @@ declare global {
 export interface Slide {
   id: number
   image: string
+  imageSmall?: string
   title: string
   description: string
   buttonText: string
@@ -48,12 +49,17 @@ export function HeroSlider({ slides }: HeroSliderProps) {
       return
     }
 
+    const autoplay = setInterval(() => {
+      api.scrollNext()
+    }, 5000)
 
     setCurrentSlide(api.selectedScrollSnap())
 
     api.on("select", () => {
       setCurrentSlide(api.selectedScrollSnap())
     })
+
+    return () => clearInterval(autoplay)
   }, [api])
 
   const handleCTAClick = (slideId: number, buttonText: string) => {
@@ -85,7 +91,9 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                 {/* Background Image with Overlay */}
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 hover:scale-105"
-                  style={{ backgroundImage: `url(${slide.image})` }}
+                  style={{
+                    backgroundImage: `url(${(typeof window !== 'undefined' && window.innerWidth < 401 && slide.imageSmall) ? slide.imageSmall : slide.image})`
+                  }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
                 </div>
@@ -97,13 +105,13 @@ export function HeroSlider({ slides }: HeroSliderProps) {
 
 
                     <h1
-                      className="text-3xl md:text-5xl lg:text-6xl text-white mb-6 tracking-wide drop-shadow-lg max-w-4xl mx-auto leading-tight"
+                      className="text-xl sm:text-2xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 tracking-wide drop-shadow-lg max-w-4xl mx-auto leading-tight"
                       style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}
                     >
                       {slide.title}
                     </h1>
                     <p
-                      className="text-base md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-4"
+                      className="text-xs sm:text-sm md:text-xl text-white mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-2"
                       style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400 }}
                     >
                       {slide.description}
@@ -154,16 +162,16 @@ export function HeroSlider({ slides }: HeroSliderProps) {
           ))}
         </CarouselContent>
 
-        {/* Navigation Arrows - Hidden on Mobile */}
-        <CarouselPrevious className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm hover:bg-white/30 hover:scale-110 transition-all duration-300 z-20">
+        {/* Navigation Arrows - Hidden on all screens (as per updated requirement) */}
+        {/* <CarouselPrevious className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm hover:bg-white/30 hover:scale-110 transition-all duration-300 z-20">
           <ChevronLeft className="h-6 w-6" />
         </CarouselPrevious>
         <CarouselNext className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/20 p-4 text-white backdrop-blur-sm hover:bg-white/30 hover:scale-110 transition-all duration-300 z-20">
           <ChevronRight className="h-6 w-6" />
-        </CarouselNext>
+        </CarouselNext> */}
 
-        {/* Slide Indicators - Mobile Only (md:hidden) */}
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-20 md:hidden">
+        {/* Slide Indicators - Visible on Desktop/Tablet (md:flex), hidden on mobile (hidden) */}
+        {/* <div className="absolute bottom-24 left-1/2 -translate-x-1/2 hidden md:flex gap-2 z-20">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -175,25 +183,9 @@ export function HeroSlider({ slides }: HeroSliderProps) {
               onClick={() => api?.scrollTo(index)}
             />
           ))}
-        </div>
+        </div> */}
       </Carousel>
 
-      {/* Add animation styles */}
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 1s ease-out forwards;
-        }
-      `}</style>
     </div>
   )
 }
