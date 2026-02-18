@@ -109,7 +109,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                       {slide.description}
                     </p>
                     {/* CTA Button Group */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
                       {/* Primary CTA - Call Us Now */}
                       {slide.buttonLink.startsWith('tel:') ? (
                         <a

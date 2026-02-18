@@ -26,8 +26,8 @@ export const Navbar = () => {
 
       <div className="bg-brand ">
         {/* Top Bar - Desktop Only */}
-        <div className="hidden md:block bg-brand text-white mx-0 font-montserrat">
-          <div className="px-4 py-2 flex justify-between items-center text-sm font-montserrat lg:px-72">
+        <div className="hidden md:block bg-brand text-white mx-0 font-montserrat min-[1751px]:px-72 ">
+          <div className=" px-4 py-2 flex justify-between items-center text-sm font-montserrat min-[1351px]:px-72 md:px-12">
             <a
               href="tel:+971557767041"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
@@ -47,7 +47,7 @@ export const Navbar = () => {
 
         {/* Top Bar - Mobile & Tablet Only */}
         <div className="md:hidden bg-brand text-white ">
-          <div className="py-2 lg:px-72 flex justify-center items-center">
+          <div className="py-2   flex justify-center items-center">
             <a
               href="tel:+971557767041"
               className="flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity"
@@ -60,8 +60,8 @@ export const Navbar = () => {
         </div>
 
         {/* Main Navigation */}
-        <div className="w-full h-[57px] md:h-20 bg-primary font-montserrat">
-          <div className="lg:px-72 px-4 md:px-12">
+        <div className="w-full h-[57px] md:h-20 bg-primary font-montserrat  min-[1751px]:px-72">
+          <div className="min-[1351px]:px-72 px-4 md:px-12">
             <div className="flex items-center justify-between h-[57px] md:h-20">
               {/* Logo */}
               <Link href="/" className="flex-shrink-0">
@@ -70,18 +70,18 @@ export const Navbar = () => {
                   alt="Mobile Car Repairs"
                   width={120}
                   height={34}
-                  className="w-[120px] h-[34px] md:w-auto md:h-12"
+                  className="w-[120px] h-[34px] min-[799px]:h-9 md:w-auto min-[1351px]:h-12"
                 />
               </Link>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center gap-8 font-montserrat">
+              <div className="hidden md:flex items-center min-[799px]:gap-4  min-[1751px]:gap-12 min-[1351px]:gap-8 font-montserrat">
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
                     href={link.path}
-                    className={`text-md font-bold transition-colors hover:text-brand ${isActive(link.path) ? "text-brand" : "text-foreground"
-                      }`}
+                    className={`font-bold transition-colors hover:text-brand ${isActive(link.path) ? "text-brand" : "text-foreground"
+                      } min-[1351px]:text-lg  min-[799px]:text-base`}
                   >
                     {link.name}
                   </Link>
@@ -91,7 +91,7 @@ export const Navbar = () => {
               {/* Desktop Book Now Button */}
               <Link
                 href="/contact-us"
-                className="hidden md:inline-block font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105"
+                className="hidden md:inline-block font-semibold bg-brand text-white hover:bg-brand/90 transition-all duration-300 transform   min-[799px]:p-2  min-[799px]:px-4 hover:scale-105  min-[1351px]:text-lg min-[1351px]:py-2 min-[1351px]:px-6 min-[1351px]:text-lg"
                 style={{ fontFamily: 'Montserrat, sans-serif' }}
               >
                 Book Now

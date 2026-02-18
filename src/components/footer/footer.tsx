@@ -117,13 +117,40 @@ export const Footer = ({
 
         {/* Bottom Bar */}
         <div className="py-6 border-t border-gray-800 bg-black -mx-4 px-4">
-          <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-white ext-center md:text-left">
-              © {currentYear} <span className="text-white font-medium">{companyName}</span>. All rights reserved.
-            </p>
+          <div className="container mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-4">
+            {/* Mobile: Icons above text (using flex-col-reverse) */}
+            <div className="flex flex-col items-center md:items-start gap-3 w-full md:w-auto">
+              {showSocialLinks && (
+                <div className="flex items-center gap-4 md:hidden order-first mb-2">
+                  <a
+                    href={facebookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a
+                    href={instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </div>
+              )}
 
+              <p className="text-sm text-white text-center md:text-left">
+                © {currentYear} <span className="text-white font-medium">{companyName}</span>. All rights reserved.
+              </p>
+            </div>
+
+            {/* Desktop Social Links (hidden on mobile) */}
             {showSocialLinks && (
-              <div className="flex items-center gap-4">
+              <div className="hidden md:flex items-center gap-4">
                 <a
                   href={facebookUrl}
                   target="_blank"
