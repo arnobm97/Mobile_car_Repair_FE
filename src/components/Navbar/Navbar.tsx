@@ -24,10 +24,10 @@ export const Navbar = () => {
     <nav className="w-full sticky top-0 z-50  shadow-lg font-montserrat"
       style={{ fontFamily: 'Montserrat, sans-serif' }}>
 
-      <div className="bg-brand">
+      <div className="bg-brand ">
         {/* Top Bar - Desktop Only */}
         <div className="hidden md:block bg-brand text-white mx-0 font-montserrat">
-          <div className="px-4 py-2 flex justify-between items-center text-sm font-montserrat">
+          <div className="px-4 py-2 flex justify-between items-center text-sm font-montserrat lg:px-72">
             <a
               href="tel:+971557767041"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
@@ -46,8 +46,8 @@ export const Navbar = () => {
         </div>
 
         {/* Top Bar - Mobile & Tablet Only */}
-        <div className="md:hidden bg-brand text-white">
-          <div className="py-2 flex justify-center items-center">
+        <div className="md:hidden bg-brand text-white ">
+          <div className="py-2 lg:px-72 flex justify-center items-center">
             <a
               href="tel:+971557767041"
               className="flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity"
@@ -61,7 +61,7 @@ export const Navbar = () => {
 
         {/* Main Navigation */}
         <div className="w-full h-[57px] md:h-20 bg-primary font-montserrat">
-          <div className="px-6 md:px-12">
+          <div className="lg:px-72 px-4 md:px-12">
             <div className="flex items-center justify-between h-[57px] md:h-20">
               {/* Logo */}
               <Link href="/" className="flex-shrink-0">
@@ -132,10 +132,10 @@ export const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.path}
-                className={`w-full font-bold py-4 px-8 transition-all duration-300
+                className={`w-full font-bold py-3 px-6 transition-all duration-300
                 ${isActive(link.path)
-                    ? "bg-red-600 text-white"
-                    : "text-white hover:bg-red-600 hover:text-white hover:pl-10"
+                    ? "bg-brand text-white"
+                    : "text-white hover:bg-brand hover:text-white hover:pl-10"
                   }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >

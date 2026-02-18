@@ -72,7 +72,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
   if (!slides || slides.length === 0) return null
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-[60vh] md:h-screen w-full overflow-hidden">
       <Carousel
         setApi={setApi}
         opts={{ loop: true }}
@@ -81,10 +81,10 @@ export function HeroSlider({ slides }: HeroSliderProps) {
         <CarouselContent>
           {slides.map((slide) => (
             <CarouselItem key={slide.id}>
-              <div className="relative h-screen">
+              <div className="relative h-[60vh] md:h-screen">
                 {/* Background Image with Overlay */}
                 <div
-                  className="absolute inset-0 bg-[length:100%_100%] md:bg-cover bg-center transition-transform duration-10000 hover:scale-105"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 hover:scale-105"
                   style={{ backgroundImage: `url(${slide.image})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
@@ -113,7 +113,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                       {slide.description}
                     </p>
                     {/* CTA Button Group */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
                       {/* Primary CTA - Call Us Now */}
                       {slide.buttonLink.startsWith('tel:') ? (
                         <a

@@ -15,7 +15,10 @@ export interface ServiceCardProps {
 
 export const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
   return (
-    <div className="group flex flex-col items-center p-8 bg-white border border-gray-100 rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:border-brand/20 relative overflow-hidden">
+    <div
+      className="group flex flex-col items-center p-8 bg-white border  shadow-sm transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden"
+      style={{ borderColor: 'rgba(189, 27, 27, 0.32)' }}
+    >
       {/* Hover Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 

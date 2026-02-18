@@ -42,7 +42,7 @@ export const SolutionSection = ({
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-4 text-center lg:text-left order-2 lg:order-1">
+          <div className="space-y-4 text-center lg:text-left order-1 lg:order-1">
             <p className="text-destructive font-semibold text-sm uppercase tracking-wider text-brand">
               {label}
             </p>
@@ -55,7 +55,7 @@ export const SolutionSection = ({
               {description}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-6 items-center justify-center lg:justify-start">
+            <div className="flex flex-row gap-4 pt-6 items-center justify-center lg:justify-start flex-wrap">
               {/* Primary Button - Call Now */}
               <a
                 href="tel:+971557767041"
@@ -75,7 +75,7 @@ export const SolutionSection = ({
           </div>
 
           {/* Right Image with Overlay */}
-          <div className="rounded-lg overflow-hidden group order-1 lg:order-2 shadow-2xl">
+          <div className="rounded-lg overflow-hidden group order-2 lg:order-2 shadow-2xl">
             <Image
               width={1920}
               height={400}
