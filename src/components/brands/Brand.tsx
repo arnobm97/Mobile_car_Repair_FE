@@ -47,7 +47,7 @@ export const BrandsSection = ({ heading, description, brands }: BrandsSectionPro
             {brands.map((brand, index) => (
               <div
                 key={`brand-dup-${index}`}
-                className="flex items-center justify-center w-[150px] h-[100px] md:w-[200px] md:h-[120px] bg-white rounded-lg p-4 transition-transform duration-300 hover:scale-110"
+                className="flex items-center justify-center lg:w-[350px] h-[300px]  w-[150px] h-[100px] md:w-[200px] md:h-[120px] bg-white rounded-lg p-4 transition-transform duration-300 hover:scale-110"
               >
                 <div className="relative w-full h-full">
                   <Image

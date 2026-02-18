@@ -1,5 +1,5 @@
 import { Phone, Mail, Facebook, Instagram, MapPin } from "lucide-react";
-import logo from "@/images/MobileCarRepairService.png";
+import logo from "@/images/Auto-Repair-3.png";
 import Link from "next/link";
 import Image from "next/image";
 

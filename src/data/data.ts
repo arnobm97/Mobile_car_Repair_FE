@@ -25,16 +25,23 @@ import WhyChoose from "@/images/WhyChoose.jpg";
 import hero1 from "@/images/hero1.webp";
 import hero2 from "@/images/hero2.webp";
 import hero3 from "@/images/hero3.webp";
-
-import { Car, Settings, Zap, CircleDotDashed, Droplet, Battery, Cpu, Fuel, Thermometer } from "lucide-react";
-
+import serviceIcon1 from "@/images/1.svg";
+import serviceIcon2 from "@/images/2.svg";
+import serviceIcon3 from "@/images/3.svg";
+import serviceIcon4 from "@/images/4.svg";
+import serviceIcon5 from "@/images/5.svg";
+import serviceIcon6 from "@/images/6.svg";
+import serviceIcon7 from "@/images/7.svg";
+import serviceIcon8 from "@/images/8.svg";
+import serviceIcon9 from "@/images/9.svg";
+import serviceIcon10 from "@/images/10.svg";
 
 
 export const heroSlides = [
   {
     id: 1,
     image: hero1.src,
-    title: "vehicle repair service in dubai",
+    title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
     description: "Service, maintenance, and repair by certified experts in Dubai, UAE. Mobile Car Repairs Service offers complete car repair, maintenance, and service solutions at your convenience.",
     buttonText: "Book Now",
     buttonLink: "/contact-us",
@@ -42,7 +49,7 @@ export const heroSlides = [
   {
     id: 2,
     image: hero2.src,
-    title: "vehicle repair service in dubai",
+    title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
     description: "Comprehensive car repair and maintenance services by certified mechanics. From engine diagnostics to brake repairs, we handle all your vehicle needs with precision and care.",
     buttonText: "Book Now",
     buttonLink: "/contact-us",
@@ -50,7 +57,7 @@ export const heroSlides = [
   {
     id: 3,
     image: hero3.src,
-    title: "vehicle repair service in dubai",
+    title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
     description: "Professional car painting services to give your vehicle a fresh, new look. Our expert technicians use high-quality paints and techniques to restore and enhance your car's appearance.",
     buttonText: "Book Now",
     buttonLink: "/contact-us",
@@ -72,16 +79,66 @@ export const servicesSection = {
   heading: "Our Services",
   label: "What We Do",
   services: [
-    { title: "Mobile Car Package", description: "Convenient mobile car services at your doorstep.", icon: Car },
-    { title: "Car Painting", description: "Professional car painting for a fresh, new look.", icon: Settings },
-    { title: "Car Diagnosis", description: "Advanced diagnostics to detect and fix issues.", icon: Zap },
-    { title: "Tyres & Wheels Care", description: "Expert tyre and wheel services for safety and performance.", icon: CircleDotDashed },
-    { title: "Refuel Car", description: "On-demand fuel delivery for your convenience.", icon: Droplet },
-    { title: "Mechanical Service", description: "Comprehensive mechanical repairs and maintenance.", icon: Settings },
-    { title: "Battery Replacement", description: "Quick and reliable battery replacement.", icon: Battery },
-    { title: "Computer Diagnosis", description: "Accurate computer diagnostics.", icon: Cpu },
-    { title: "Oil Change", description: "Premium oil change for engine performance.", icon: Fuel },
-    { title: "AC Repair", description: "Efficient AC repair to keep your car cool.", icon: Thermometer },
+    {
+      title: "Mobile Car Package",
+      description: "Convenient mobile car services at your doorstep.",
+      icon: serviceIcon7,
+      iconAlt: "Mobile car service icon"
+    },
+    {
+      title: "Car Painting",
+      description: "Professional car painting for a fresh, new look.",
+      icon: serviceIcon2,
+      iconAlt: "Car painting icon"
+    },
+    {
+      title: "Car Diagnosis",
+      description: "Advanced diagnostics to detect and fix issues.",
+      icon: serviceIcon3,
+      iconAlt: "Car diagnosis icon"
+    },
+    {
+      title: "Tyres & Wheels Care",
+      description: "Expert tyre and wheel services for safety and performance.",
+      icon: serviceIcon4,
+      iconAlt: "Tyres and wheels icon"
+    },
+    {
+      title: "Refuel Car",
+      description: "On-demand fuel delivery for your convenience.",
+      icon: serviceIcon1,
+      iconAlt: "Refuel car icon"
+    },
+    {
+      title: "Mechanical Service",
+      description: "Comprehensive mechanical repairs and maintenance.",
+      icon: serviceIcon8,
+      iconAlt: "Mechanical service icon"
+    },
+    {
+      title: "Battery Replacement",
+      description: "Quick and reliable battery replacement.",
+      icon: serviceIcon5,
+      iconAlt: "Battery replacement icon"
+    },
+    {
+      title: "Computer Diagnosis",
+      description: "Accurate computer diagnostics.",
+      icon: serviceIcon9,
+      iconAlt: "Computer diagnosis icon"
+    },
+    {
+      title: "Oil Change",
+      description: "Premium oil change for engine performance.",
+      icon: serviceIcon10,
+      iconAlt: "Oil change icon"
+    },
+    {
+      title: "AC Repair",
+      description: "Efficient AC repair to keep your car cool.",
+      icon: serviceIcon6,
+      iconAlt: "AC repair icon"
+    },
   ],
 };
 

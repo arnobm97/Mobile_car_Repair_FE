@@ -21,11 +21,13 @@ export const Navbar = () => {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="w-full">
+    <nav className="w-full sticky top-0 z-50  shadow-lg font-montserrat"
+      style={{ fontFamily: 'Montserrat, sans-serif' }}>
+
       <div className="bg-brand">
         {/* Top Bar - Desktop Only */}
-        <div className="hidden md:block bg-brand text-white mx-0">
-          <div className="px-4 py-2 flex justify-between items-center text-sm">
+        <div className="hidden md:block bg-brand text-white mx-0 font-montserrat">
+          <div className="px-4 py-2 flex justify-between items-center text-sm font-montserrat">
             <a
               href="tel:+971557767041"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
@@ -44,7 +46,7 @@ export const Navbar = () => {
         </div>
 
         {/* Main Navigation */}
-        <div className="w-full h-20 bg-primary">
+        <div className="w-full h-20 bg-primary font-montserrat">
           <div className="px-6 md:px-12">
             <div className="flex items-center justify-between h-20">
               {/* Logo */}
@@ -57,7 +59,7 @@ export const Navbar = () => {
               </Link>
 
               {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center gap-8">
+              <div className="hidden md:flex items-center gap-8 font-montserrat">
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
@@ -73,10 +75,10 @@ export const Navbar = () => {
               {/* Desktop Book Now Button - Using shadcn Button */}
               <Button
                 size="lg"
-                className="hidden md:flex group relative bg-red-600 px-8 py-6 text-lg font-semibold text-white hover:bg-red-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl overflow-hidden"
+                className="hidden font-montserrat font-montserrat md:flex group relative bg-red-600 px-8 py-6 text-lg font-semibold text-white hover:bg-red-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl overflow-hidden"
                 asChild
               >
-                <Link href="/contact-us" className="flex items-center gap-2">
+                <Link href="/contact-us" className="flex items-center gap-2 font-montserrat">
                   <Calendar className="h-5 w-5 transition-transform group-hover:rotate-12" />
                   <span>Book Now</span>
                   <span className="absolute right-0 top-0 h-full w-2 bg-white/20 transform skew-x-12 group-hover:w-full transition-all duration-500 -z-10"></span>
@@ -87,7 +89,7 @@ export const Navbar = () => {
               <div className="flex md:hidden items-center gap-3">
                 <Button
                   size="sm"
-                  className="bg-red-600 px-4 py-2 text-white font-bold hover:bg-red-700 transition-colors"
+                  className="bg-red-600 px-4 py-2 text-white font-bold hover:bg-red-700 transition-colors font-montserrat"
                   asChild
                 >
                   <Link href="/contact-us">
@@ -112,8 +114,8 @@ export const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden z-100 absolute top-20 left-0 w-full bg-black/95 backdrop-blur-sm text-white flex flex-col items-start py-4 shadow-xl border-t border-white/10 h-screen transition-all duration-300 ease-in-out">
-            <div className="w-full flex flex-col">
+          <div className="md:hidden font-montserrat z-100 absolute top-20 left-0 w-full bg-black/95 backdrop-blur-sm text-white flex flex-col items-start py-4 shadow-xl border-t border-white/10 h-screen transition-all duration-300 ease-in-out">
+            <div className="w-full flex flex-col font-montserrat">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -133,11 +135,11 @@ export const Navbar = () => {
             <div className="w-full px-8 mt-8">
               <Button
                 variant="default"
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-6 rounded-lg shadow-lg flex items-center justify-center gap-2 text-lg"
+                className="w-full font-montserrat bg-red-600 hover:bg-red-700 text-white font-bold py-6 rounded-lg shadow-lg flex items-center justify-center gap-2 text-lg"
                 onClick={() => setIsMobileMenuOpen(false)}
                 asChild
               >
-                <Link href="/contact-us">
+                <Link href="/contact-us font-montserrat">
                   <Calendar className="w-5 h-5 mr-2" />
                   Book Now
                 </Link>

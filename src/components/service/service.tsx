@@ -3,7 +3,7 @@ import { ServiceCard, ServiceCardProps } from "./serviceCard";
 export interface ServicesSectionProps {
     label?: string;
     heading: string;
-    services: Omit<ServiceCardProps, "onCallNow">[];
+    services: ServiceCardProps[]; // This now matches the updated ServiceCardProps
     onCallNow?: (serviceName: string) => void;
 }
 
@@ -30,7 +30,9 @@ export const ServicesSection = ({
                     {services.map((service, index) => (
                         <ServiceCard
                             key={index}
-                            {...service}
+                            icon={service.icon}
+                            title={service.title}
+                            description={service.description}
                         />
                     ))}
                 </div>

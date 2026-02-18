@@ -72,7 +72,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
   if (!slides || slides.length === 0) return null
 
   return (
-    <div className="relative h-screen w-full overflow-hidden pt-24">
+    <div className="relative h-screen w-full overflow-hidden">
       <Carousel
         setApi={setApi}
         opts={{ loop: true }}
@@ -84,15 +84,15 @@ export function HeroSlider({ slides }: HeroSliderProps) {
               <div className="relative h-screen">
                 {/* Background Image with Overlay */}
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-10000 hover:scale-105"
+                  className="absolute inset-0 bg-[length:100%_100%] md:bg-cover bg-center transition-transform duration-10000 hover:scale-105"
                   style={{ backgroundImage: `url(${slide.image})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex h-full items-center px-4 md:px-8 lg:px-16">
-                  <div className="max-w-3xl text-left animate-fadeIn">
+                <div className="relative z-10 flex h-full items-center justify-center px-4 md:px-8 lg:px-16">
+                  <div className="max-w-3xl w-full text-center animate-fadeIn">
                     {/* Slide Indicator */}
                     <span className="mb-4 inline-block rounded-full bg-red-600 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">
                       {slide.id === 1 && "Complete Car Care"}
@@ -100,14 +100,20 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                       {slide.id === 3 && "Premium Painting"}
                     </span>
 
-                    <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight drop-shadow-lg max-w-4xl leading-tight">
+                    <h1
+                      className="text-3xl md:text-5xl lg:text-6xl text-white mb-6 tracking-wide drop-shadow-lg max-w-4xl mx-auto leading-tight"
+                      style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}
+                    >
                       {slide.title}
                     </h1>
-                    <p className="text-base md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-4">
+                    <p
+                      className="text-base md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-4"
+                      style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400 }}
+                    >
                       {slide.description}
                     </p>
                     {/* CTA Button Group */}
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                       {/* Primary CTA - Book Now */}
                       <Button
                         asChild
@@ -123,7 +129,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
                     </div>
 
                     {/* Trust Badges */}
-                    <div className="mt-8 flex items-center gap-6 text-white/80">
+                    <div className="mt-8 flex items-center justify-center gap-6 text-white/80">
                       <div className="flex items-center gap-2">
                         <div className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></div>
                         <span className="text-sm">24/7 Service</span>
