@@ -60,15 +60,17 @@ export const Navbar = () => {
         </div>
 
         {/* Main Navigation */}
-        <div className="w-full h-20 bg-primary font-montserrat">
+        <div className="w-full h-[57px] md:h-20 bg-primary font-montserrat">
           <div className="px-6 md:px-12">
-            <div className="flex items-center justify-between h-20">
+            <div className="flex items-center justify-between h-[57px] md:h-20">
               {/* Logo */}
               <Link href="/" className="flex-shrink-0">
                 <Image
                   src={logo}
                   alt="Mobile Car Repairs"
-                  className="h-12 w-auto"
+                  width={120}
+                  height={34}
+                  className="w-[120px] h-[34px] md:w-auto md:h-12"
                 />
               </Link>
 
@@ -115,28 +117,33 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden font-montserrat z-100 absolute top-28 left-0 w-full bg-black/95 backdrop-blur-sm text-white flex flex-col items-start py-4 shadow-xl border-t border-white/10 h-screen transition-all duration-300 ease-in-out">
-            <div className="w-full flex flex-col font-montserrat ">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.path}
-                  className={`w-full text-xl font-bold py-4 px-8 border-b border-white/5 transition-all duration-300
-                  ${isActive(link.path)
-                      ? "bg-red-600 text-white"
-                      : "text-white hover:bg-red-600 hover:text-white hover:pl-10"
-                    }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-
-
+        <div
+          className="md:hidden font-montserrat z-100 absolute top-[90px] left-0 w-full bg-black/95 backdrop-blur-sm text-white flex flex-col items-start overflow-hidden"
+          style={{
+            maxHeight: isMobileMenuOpen ? "400px" : "0px",
+            transform: isMobileMenuOpen ? "scaleY(1)" : "scaleY(0)",
+            transformOrigin: "top",
+            transition: "max-height 0.4s ease, transform 0.4s ease, opacity 0.3s ease",
+            opacity: isMobileMenuOpen ? 1 : 0,
+          }}
+        >
+          <div className="w-full flex flex-col font-montserrat">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.path}
+                className={`w-full font-bold py-4 px-8 transition-all duration-300
+                ${isActive(link.path)
+                    ? "bg-red-600 text-white"
+                    : "text-white hover:bg-red-600 hover:text-white hover:pl-10"
+                  }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
