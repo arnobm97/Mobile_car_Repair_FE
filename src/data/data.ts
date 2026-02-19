@@ -151,11 +151,16 @@ export const testimonialsSection = {
   description:
     "We take pride in delivering exceptional services and ensuring the best experience for our valued customers. Their trust and satisfaction fuel our commitment to excellence.",
   overallRating: 5,
-  totalReviews: 33,
+  totalReviews: 38,
   testimonials: [
     { name: "Haleem Khan", date: "2024-12-17", rating: 5, review: "Very nice and experienced staff", initial: "H", link: "https://g.co/kgs/example1" },
     { name: "Taqi Usmani", date: "2024-12-16", rating: 5, review: "On time coming and repair my car thanks", initial: "T", link: "https://g.co/kgs/example2" },
     { name: "Marwan Jan", date: "2024-12-15", rating: 5, review: "I am Very satisfied with their service thanks", initial: "M", link: "https://g.co/kgs/example3" },
+    { name: "Ahmed Raza", date: "2024-12-14", rating: 5, review: "Best mobile car service in Dubai, highly recommended!", initial: "A", link: "https://g.co/kgs/example4" },
+    { name: "Sajid Ali", date: "2024-12-13", rating: 5, review: "Quick response and professional work. Saved my day!", initial: "S", link: "https://g.co/kgs/example5" },
+    { name: "Omar Farooq", date: "2024-12-12", rating: 5, review: "Great experience, very knowledgeable mechanics.", initial: "O", link: "https://g.co/kgs/example6" },
+    { name: "Zubair Ahmed", date: "2024-12-11", rating: 5, review: "Excellent service and reasonable prices.", initial: "Z", link: "https://g.co/kgs/example7" },
+    { name: "Bilal Hassan", date: "2024-12-10", rating: 5, review: "Transparent and honest car repair service.", initial: "B", link: "https://g.co/kgs/example8" },
   ],
 };
 

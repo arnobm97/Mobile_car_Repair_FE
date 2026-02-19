@@ -95,7 +95,7 @@ export const Footer = ({
                 </div>
                 <div>
                   <p className="text-sm max-[799px]:text-xs font-semibold text-white mb-1">Call Us</p>
-                  <p className="text-sm max-[799px]:text-xs group-hover:text-brand transition-colors">{phone}</p>
+                  <p className="text-sm max-[799px]:text-xs group-hover:text-brand transition-colors underline">{phone}</p>
                 </div>
               </a>
 
@@ -108,7 +108,7 @@ export const Footer = ({
                 </div>
                 <div>
                   <p className="text-sm max-[799px]:text-xs font-semibold text-white mb-1">Email Us</p>
-                  <p className="text-sm max-[799px]:text-xs break-all group-hover:text-brand transition-colors">{email}</p>
+                  <p className="text-sm max-[799px]:text-xs break-all group-hover:text-brand transition-colors underline">{email}</p>
                 </div>
               </a>
             </div>
@@ -118,61 +118,35 @@ export const Footer = ({
       </div>
 
       {/* Bottom Bar - Moved outside the main container to be truly full width */}
-      <div className="py-6 border-t border-gray-800 bg-black w-full px-4">
-        <div className="container mx-auto flex flex-col-reverse md:flex-row justify-between items-center gap-4">
-          {/* Mobile: Icons above text (using flex-col-reverse) */}
-          <div className="flex flex-col lg:items-center md:items-start gap-3 w-full md:w-auto">
-            {showSocialLinks && (
-              <div className="flex items-center gap-4 md:hidden order-first mb-2">
-                <a
-                  href={facebookUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className=" max-[799px]:w-8 max-[799px]:h-8 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a
-                  href={instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="max-[799px]:w-8 max-[799px]:h-8 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
-              </div>
-            )}
-
-            <p className="max-[799px]:text-[10px] max-[799px]:text-left text-white text-center md:text-left">
-              © {currentYear} <span className="text-white font-medium">{companyName}</span>. All rights reserved.
-            </p>
-          </div>
-
-          {/* Desktop Social Links (hidden on mobile) */}
+      <div className="py-2 border-t border-gray-800 bg-black w-full px-4">
+        <div className="container mx-auto flex flex-col items-start justify-between gap-2 md:flex-row md:items-center">
+          {/* Mobile & Desktop Social Links */}
           {showSocialLinks && (
-            <div className="hidden md:flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <a
                 href={facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
+                className="text-white hover:text-brand transition-all duration-300"
                 aria-label="Facebook"
               >
-                <Facebook className="w-4 h-4" />
+                <Facebook className="w-7 h-7 md:w-4 md:h-4" />
               </a>
               <a
                 href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-white/5 text-white hover:bg-brand hover:text-white transition-all duration-300"
+                className="text-white hover:text-brand transition-all duration-300"
                 aria-label="Instagram"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-6 h-6 md:w-4 md:h-4" />
               </a>
             </div>
           )}
+
+          <p className="text-[16px] sm:text-[10px] text-white text-left font-montserrat tracking-tight">
+            © <span className="text-white">Mobilecarrepairsservice.com {currentYear}.</span>
+          </p>
         </div>
       </div>
     </footer>

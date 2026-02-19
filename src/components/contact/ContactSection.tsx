@@ -27,13 +27,13 @@ export const ContactSection = ({
 }: ContactSectionProps) => {
   return (
     <section className="lg:py-20 py-12 bg-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-2 sm:px-4">
         {/* Section Header */}
 
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Form Section */}
-          <div className="bg-accent p-6 md:p-8 lg:p-10 rounded-none ">
+          <div className="bg-accent p-4 sm:p-6 md:p-8 lg:p-10 rounded-none ">
             <ContactForm onSubmit={onFormSubmit} submitButtonText={submitButtonText} />
           </div>
 
@@ -74,7 +74,7 @@ export const ContactSection = ({
                     </h3>
                     <a
                       href={`mailto:${contactInfo.email}`}
-                      className="text-muted-foreground hover:text-accent transition-colors min-[400px]:text-sm md:text-lg max-[399px]:text-xs"
+                      className="text-muted-foreground hover:text-accent transition-colors min-[400px]:text-sm md:text-lg max-[399px]:text-xs underline"
                     >
                       {contactInfo.email}
                     </a>
@@ -93,7 +93,7 @@ export const ContactSection = ({
                     </h3>
                     <a
                       href={`tel:${contactInfo.phone.replace(/\s/g, '')}`}
-                      className="text-muted-foreground hover:text-accent transition-colors min-[400px]:text-sm md:text-lg max-[399px]:text-xs"
+                      className="text-muted-foreground hover:text-accent transition-colors min-[400px]:text-sm md:text-lg max-[399px]:text-xs underline"
                     >
                       {contactInfo.phone}
                     </a>

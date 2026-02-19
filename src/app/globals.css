@@ -10,6 +10,8 @@
   --color-border: #fff;
   --color-text: #192a3d;
   --color-brand: #bd1b1b;
+  --font-poppins: var(--font-poppins);
+  --font-montserrat: var(--font-montserrat);
 }
 
 
