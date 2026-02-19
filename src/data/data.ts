@@ -44,7 +44,7 @@ export const heroSlides = [
   {
     id: 1,
     image: hero1.src,
-    imageSmall: hero1small.src,
+    imageSmall: hero1.src,
     title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
     description: "Service, maintenance, and repair by certified experts in Dubai, UAE. Mobile Car Repairs Service offers complete car repair, maintenance, and service solutions at your convenience.",
     buttonText: "Call Us Now",
@@ -53,7 +53,7 @@ export const heroSlides = [
   {
     id: 2,
     image: hero2.src,
-    imageSmall: hero2small.src,
+    imageSmall: hero2.src,
     title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
     description: "Comprehensive car repair and maintenance services by certified mechanics. From engine diagnostics to brake repairs, we handle all your vehicle needs with precision and care.",
     buttonText: "Call Us Now",
@@ -62,7 +62,7 @@ export const heroSlides = [
   {
     id: 3,
     image: hero3.src,
-    imageSmall: hero3small.src,
+    imageSmall: hero3.src,
     title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
     description: "Professional car painting services to give your vehicle a fresh, new look. Our expert technicians use high-quality paints and techniques to restore and enhance your car's appearance.",
     buttonText: "Call Us Now",

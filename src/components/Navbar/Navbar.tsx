@@ -158,7 +158,7 @@ export const Navbar = () => {
                 key={link.name}
                 href={link.path}
                 className={`w-full font-bold py-4 px-6 transition-all duration-300
-                          border-b border-white/10 last:border-b-0
+                          
                           ${isActive(link.path)
                     ? "bg-brand text-white"
                     : "text-white hover:bg-brand hover:text-white hover:pl-10"
