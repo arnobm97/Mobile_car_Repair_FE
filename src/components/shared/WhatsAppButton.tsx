@@ -10,7 +10,7 @@ export const WhatsAppButton = () => {
             className="fixed bottom-4 right-2 z-[9999] animate-in fade-in slide-in-from-bottom-4 group"
         >
             <div
-                className="flex z-99 items-center justify-center bg-[#e4e4e4] text-[#7f7d7d] w-10 h-10 sm:w-auto sm:h-9 md:h-12 px-0 sm:px-4 rounded-full shadow-lg transition-all duration-200 hover:bg-[#d4d4d4]"
+                className="flex z-99 items-center justify-center bg-[#e4e4e4] text-[#7f7d7d] w-14 h-14 sm:w-auto sm:h-9 md:h-12 px-0 sm:px-4 rounded-full shadow-lg transition-all duration-200 hover:bg-[#d4d4d4]"
                 style={{
                     boxShadow: "0 2px 8px rgba(0,0,0,0.18)",
                 }}
@@ -18,7 +18,7 @@ export const WhatsAppButton = () => {
                 {/* WhatsApp gradient icon */}
                 <div className="flex items-center">
                     <svg
-                        className="h-7 w-7 md:h-9 md:w-9 pointer-events-none block"
+                        className="h-10 w-10 md:h-9 md:w-9 pointer-events-none block"
                         viewBox="0 0 1219.547 1225.016"
                     >
                         <path

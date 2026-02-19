@@ -16,24 +16,24 @@ export interface ServiceCardProps {
 export const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
   return (
     <div
-      className="group flex flex-col items-center p-8 bg-white border  shadow-sm transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl relative overflow-hidden"
+      className="group flex flex-col items-center p-8 bg-white border  shadow-sm transition-all duration-300 ease-in-out  relative overflow-hidden"
       style={{ borderColor: 'rgba(189, 27, 27, 0.32)' }}
     >
       {/* Hover Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brand/5 opacity-0  transition-opacity duration-300 pointer-events-none" />
 
-      <div className="mb-6 p-4 bg-gray-50 rounded-full group-hover:bg-white group-hover:shadow-md transition-all duration-300">
+      <div className="mb-6 p-4 bg-gray-50 rounded-full  transition-all duration-300">
         <Image
           src={icon.src}
           alt={title}
           width={72}
           height={72}
-          className="w-16 h-16 transition-transform duration-300 group-hover:scale-110"
+          className="w-16 h-16 transition-transform duration-300 "
           style={{ objectFit: 'contain' }}
         />
       </div>
 
-      <h3 className="text-xl font-bold text-gray-900 mb-3 text-center group-hover:text-brand transition-colors duration-300">
+      <h3 className="text-xl font-bold text-gray-900 mb-3 text-center  transition-colors duration-300">
         {title}
       </h3>
 
