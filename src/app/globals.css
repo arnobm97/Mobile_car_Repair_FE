@@ -18,6 +18,31 @@
   --font-montserrat: 'Montserrat', sans-serif;
 }
 
+html {
+  height: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -230,3 +255,26 @@ h6 {
   left: 0;
   width: 103px;
 } */
+
+/* reCAPTCHA Badge Styling - Icon Only */
+.grecaptcha-badge {
+  left: 0 !important;
+  right: auto !important;
+  bottom: 0 !important;
+  border-radius: 0 4px 4px 0 !important;
+  transition: opacity 0.3s ease !important;
+  width: 70px !important;
+  overflow: hidden !important;
+  z-index: 9999 !important;
+}
+
+.grecaptcha-badge:hover {
+  width: 70px !important;
+}
+
+@media (max-width: 780px) {
+  .grecaptcha-badge {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}

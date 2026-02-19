@@ -47,7 +47,7 @@ export const MapSection = () => {
     }, []);
 
     return (
-        <section className="w-full my-8">
+        <section className="w-full mt-8">
             <div ref={mapRef} style={{ height: "300px", width: "100%" }} />
         </section>
     );

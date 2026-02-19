@@ -37,7 +37,7 @@ export const BrandsSection = ({ heading, description, brands }: BrandsSectionPro
                     src={brand.logo}
                     alt={brand.name}
                     fill
-                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    className="object-contain transition-all duration-300"
                   />
                 </div>
               </div>
@@ -54,7 +54,7 @@ export const BrandsSection = ({ heading, description, brands }: BrandsSectionPro
                     src={brand.logo}
                     alt={brand.name}
                     fill
-                    className="object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                    className="object-contain transition-all duration-300"
                   />
                 </div>
               </div>

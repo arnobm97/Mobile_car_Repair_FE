@@ -27,11 +27,23 @@ export const TestimonialsSection = ({
       return
     }
 
+    // Auto-sliding for small screens (up to 767px)
+    let autoplayInterval: NodeJS.Timeout | null = null;
+    if (window.innerWidth < 768) {
+      autoplayInterval = setInterval(() => {
+        api.scrollNext();
+      }, 5000);
+    }
+
     setCurrentSlide(api.selectedScrollSnap())
 
     api.on("select", () => {
       setCurrentSlide(api.selectedScrollSnap())
     })
+
+    return () => {
+      if (autoplayInterval) clearInterval(autoplayInterval);
+    }
   }, [api])
 
   return (

@@ -1,3 +1,4 @@
+import { Phone } from "lucide-react";
 import { ServiceCard, ServiceCardProps } from "./serviceCard";
 
 export interface ServicesSectionProps {
@@ -35,6 +36,17 @@ export const ServicesSection = ({
                             description={service.description}
                         />
                     ))}
+                </div>
+
+                {/* Section CTA Button */}
+                <div className="mt-12 flex   justify-center">
+                    <a
+                        href="tel:+971557767041"
+                        className="group flex items-center gap-3 bg-brand text-white px-4 py-3 rounded-md font-bold text-lg shadow-lg hover:bg-brand/90 hover:shadow-xl transition-all duration-300 transform hover:scale-105 whitespace-nowrap"
+                    >
+                        <Phone className="w-8 h-8 fill-current animate-pulse  group-hover:animate-none" />
+                        <span>Call Now For Expert Service</span>
+                    </a>
                 </div>
             </div>
         </section>

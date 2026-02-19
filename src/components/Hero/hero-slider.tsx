@@ -36,27 +36,29 @@ interface HeroSliderProps {
 }
 
 export function HeroSlider({ slides }: HeroSliderProps) {
-  const [api, setApi] = useState<CarouselApi>()
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    if (!api) return
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  useEffect(() => {
+    if (!slides || slides.length === 0) return
 
     const autoplay = setInterval(() => {
-      api.scrollNext()
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
     }, 5000)
 
-    setCurrentSlide(api.selectedScrollSnap())
-
-    api.on("select", () => {
-      setCurrentSlide(api.selectedScrollSnap())
-    })
-
     return () => clearInterval(autoplay)
-  }, [api])
+  }, [slides.length])
 
   const handleCTAClick = (slideId: number, buttonText: string) => {
-    console.log(`CTA Clicked - Slide ${slideId}: ${buttonText}`)
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('event', 'cta_click', {
         'event_category': 'hero_slider',
@@ -68,74 +70,67 @@ export function HeroSlider({ slides }: HeroSliderProps) {
   if (!slides || slides.length === 0) return null
 
   return (
-    <div className="relative h-[300px] md:h-screen w-full overflow-hidden">
-      <Carousel
-        setApi={setApi}
-        opts={{ loop: true }}
-        className="w-full h-full"
-      >
-        <CarouselContent>
-          {slides.map((slide) => (
-            <CarouselItem key={slide.id}>
-              <div className="relative h-[300px] md:h-screen w-full">
-                {/* Background Image using IMG tag for better control */}
-                <div className="absolute inset-0 w-full h-full">
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    fill
-                    sizes="100vw"
-                    priority
-                    className="object-fill"
-                    style={{ objectPosition: 'center' }}
-                  />
-                  {/* Dark Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
-                </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+    <div className="relative h-[500px] md:h-screen w-full overflow-hidden bg-black">
+      {/* Background Slides with Cross-fade */}
+      <div className="absolute inset-0 w-full h-full">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out"
+            style={{
+              opacity: index === currentSlide ? 1 : 0,
+              zIndex: index === currentSlide ? 1 : 0,
+            }}
+          >
+            <Image
+              src={isMobile && slide.imageSmall ? slide.imageSmall : slide.image}
+              alt={slide.title}
+              fill
+              sizes="100vw"
+              priority={index === 0}
+              className="object-cover"
+              style={{ objectPosition: "center" }}
+            />
+            {/* Dark Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
+          </div>
+        ))}
+      </div>
 
-        {/* Persistent Content */}
-        <div className="absolute inset-0 z-10 flex h-full items-center justify-center px-4 md:px-8 lg:px-16 pointer-events-none">
-          <div className="max-w-3xl w-full text-center animate-fadeIn pointer-events-auto">
-            <h1
-              className="text-xl sm:text-2xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 tracking-wide drop-shadow-lg max-w-4xl mx-auto leading-tight"
-              style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700 }}
+      {/* Persistent Content */}
+      <div className="absolute inset-0 z-10 flex h-full items-center justify-center px-4 md:px-8 lg:px-16 pointer-events-none">
+        <div className="max-w-4xl w-full text-center animate-fadeIn pointer-events-auto">
+          {/* Title - Specifically optimized for 320px screens */}
+          <h1
+            className="text-[32px] sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1] font-extrabold uppercase"
+            style={{ fontFamily: 'Montserrat, sans-serif' }}
+          >
+            {slides[0].title}
+          </h1>
+
+          {/* Description */}
+          <p
+            className="text-sm sm:text-base md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-lg px-2 font-medium"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
+          >
+            {slides[0].description}
+          </p>
+
+          {/* CTA Button */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href={slides[0].buttonLink}
+              className="font-bold bg-brand py-3 px-10 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105 inline-block text-center text-lg rounded-sm shadow-xl"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
+              onClick={() => handleCTAClick(slides[0].id, slides[0].buttonText)}
             >
-              {slides[0].title}
-            </h1>
-            <p
-              className="text-xs sm:text-sm md:text-xl text-white mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md px-2"
-              style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400 }}
-            >
-              {slides[0].description}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-              {slides[0].buttonLink.startsWith('tel:') ? (
-                <a
-                  href={slides[0].buttonLink}
-                  className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105 inline-block text-center"
-                  style={{ fontFamily: 'Montserrat, sans-serif' }}
-                  onClick={() => handleCTAClick(slides[0].id, slides[0].buttonText)}
-                >
-                  {slides[0].buttonText}
-                </a>
-              ) : (
-                <Link
-                  href={slides[0].buttonLink}
-                  className="font-semibold bg-brand py-2 px-6 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105 inline-block text-center"
-                  style={{ fontFamily: 'Montserrat, sans-serif' }}
-                  onClick={() => handleCTAClick(slides[0].id, slides[0].buttonText)}
-                >
-                  {slides[0].buttonText}
-                </Link>
-              )}
-            </div>
+              {slides[0].buttonText}
+            </a>
           </div>
         </div>
-      </Carousel>
+      </div>
+
+
     </div>
   )
 }

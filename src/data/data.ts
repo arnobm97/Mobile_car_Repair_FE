@@ -24,10 +24,8 @@ import Solutionshowcare from "@/images/Best-Car-Repair-Service-in-Dubai.jpg"
 import WhyChoose from "@/images/WhyChoose.jpg";
 import hero1 from "@/images/hero1.webp";
 import hero2 from "@/images/hero2.webp";
-import hero3 from "@/images/hero3.webp";
-import hero1small from "@/images/hero1small.jpeg";
-import hero2small from "@/images/hero2small.jpeg";
-import hero3small from "@/images/hero3small.jpeg";
+import hero1small from "@/images/hero1small.webp";
+import hero2small from "@/images/hero2small.webp";
 import serviceIcon1 from "@/images/1.svg";
 import serviceIcon2 from "@/images/2.svg";
 import serviceIcon3 from "@/images/3.svg";
@@ -44,7 +42,7 @@ export const heroSlides = [
   {
     id: 1,
     image: hero1.src,
-    imageSmall: hero1.src,
+    imageSmall: hero1small.src,
     title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
     description: "Service, maintenance, and repair by certified experts in Dubai, UAE. Mobile Car Repairs Service offers complete car repair, maintenance, and service solutions at your convenience.",
     buttonText: "Call Us Now",
@@ -53,21 +51,21 @@ export const heroSlides = [
   {
     id: 2,
     image: hero2.src,
-    imageSmall: hero2.src,
+    imageSmall: hero2small.src,
     title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
     description: "Comprehensive car repair and maintenance services by certified mechanics. From engine diagnostics to brake repairs, we handle all your vehicle needs with precision and care.",
     buttonText: "Call Us Now",
     buttonLink: "tel:+971557767041",
   },
-  {
-    id: 3,
-    image: hero3.src,
-    imageSmall: hero3.src,
-    title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
-    description: "Professional car painting services to give your vehicle a fresh, new look. Our expert technicians use high-quality paints and techniques to restore and enhance your car's appearance.",
-    buttonText: "Call Us Now",
-    buttonLink: "tel:+971557767041",
-  },
+  // {
+  //   id: 3,
+  //   image: hero3.src,
+  //   imageSmall: hero3.src,
+  //   title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
+  //   description: "Professional car painting services to give your vehicle a fresh, new look. Our expert technicians use high-quality paints and techniques to restore and enhance your car's appearance.",
+  //   buttonText: "Call Us Now",
+  //   buttonLink: "tel:+971557767041",
+  // },
 ];
 
 export const solutionSection = {

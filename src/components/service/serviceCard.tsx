@@ -41,13 +41,6 @@ export const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
         {description}
       </p>
 
-      <a
-        href="tel:+971557767041"
-        className="flex gap-2 justify-center items-center text-red-600 font-bold transition-all duration-300 group-hover:gap-3"
-      >
-        <Phone className="w-4 h-4 fill-current" />
-        <span>Call Now</span>
-      </a>
     </div>
   );
 };

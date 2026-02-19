@@ -25,10 +25,10 @@ export const FAQSection = ({ heading, description, faqs }: FAQSectionProps) => {
     return (
         <section className="py-16 bg-secondary">
             <div className="container mx-auto px-4 max-w-4xl">
-                <div className="text-center mb-8 sm:mb-12">
+                <div className="text-center mb-12 sm:mb-12">
                     <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-3 sm:mb-4 text-brand">{heading}</h2>
                     {description && (
-                        <p className="text-sm sm:text-base md:text-lg text-muted-foreground">{description}</p>
+                        <p className="text-sm sm:text-base md:text-lg text-muted-foreground ">{description}</p>
                     )}
                 </div>
 

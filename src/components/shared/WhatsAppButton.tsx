@@ -7,31 +7,18 @@ export const WhatsAppButton = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp us"
-            className="fixed bottom-6 right-6 z-50 animate-in fade-in slide-in-from-bottom-4"
+            className="fixed bottom-4 right-2 z-[9999] animate-in fade-in slide-in-from-bottom-4 group"
         >
             <div
+                className="flex z-99 items-center justify-center bg-[#e4e4e4] text-[#7f7d7d] w-10 h-10 sm:w-auto sm:h-9 md:h-12 px-0 sm:px-4 rounded-full shadow-lg transition-all duration-200 hover:bg-[#d4d4d4]"
                 style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    backgroundColor: "#e4e4e4",
-                    color: "#7f7d7d",
-                    padding: "0 12px",
-                    borderRadius: "25px",
-                    fontSize: "13px",
-                    lineHeight: "32px",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.18)",
-                    transition: "box-shadow 0.2s, background-color 0.2s",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#d4d4d4")}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#e4e4e4")}
             >
                 {/* WhatsApp gradient icon */}
-                <span style={{ margin: "0 8px 0 -12px", order: 0 }}>
+                <div className="flex items-center">
                     <svg
-                        style={{ pointerEvents: "none", display: "block", height: "32px", width: "32px" }}
-                        width="32px"
-                        height="32px"
+                        className="h-7 w-7 md:h-9 md:w-9 pointer-events-none block"
                         viewBox="0 0 1219.547 1225.016"
                     >
                         <path
@@ -57,8 +44,10 @@ export const WhatsAppButton = () => {
                             d="M1036.898 176.091C923.562 62.677 772.859.185 612.297.114 281.43.114 12.172 269.286 12.039 600.137 12 705.896 39.633 809.13 92.156 900.13L7 1211.067l318.203-83.438c87.672 47.812 186.383 73.008 286.836 73.047h.255.003c330.812 0 600.109-269.219 600.25-600.055.055-160.343-62.328-311.108-175.649-424.53zm-424.601 923.242h-.195c-89.539-.047-177.344-24.086-253.93-69.531l-18.227-10.805-188.828 49.508 50.414-184.039-11.875-18.867c-49.945-79.414-76.312-171.188-76.273-265.422.109-274.992 223.906-498.711 499.102-498.711 133.266.055 258.516 52 352.719 146.266 94.195 94.266 146.031 219.578 145.992 352.852-.118 274.999-223.923 498.749-498.899 498.749z"
                         />
                     </svg>
-                </span>
-                <span style={{ fontWeight: 600, fontFamily: "Montserrat, sans-serif" }}>WhatsApp us</span>
+
+                    {/* Text hidden on screens 320px and below, visible on sm and up */}
+                    <span className="hidden sm:inline-block font-montserrat ml-2 md:text-lg">WhatsApp us</span>
+                </div>
             </div>
         </a>
     );
