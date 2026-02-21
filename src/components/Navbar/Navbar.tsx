@@ -20,7 +20,7 @@ export const Navbar = () => {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="w-full sticky top-0 z-50 shadow-lg font-montserrat"
+    <nav className="w-full fixed top-0 z-50 shadow-lg font-montserrat"
       style={{ fontFamily: 'Montserrat, sans-serif' }}>
 
       <div className="bg-brand">

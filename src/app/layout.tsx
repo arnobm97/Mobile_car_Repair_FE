@@ -42,7 +42,9 @@ export default function RootLayout({
         <SmoothScrolling>
           <RecaptchaProvider>
             <Navbar />
-            {children}
+            <div className="pt-[93px] md:pt-[116px]">
+              {children}
+            </div>
             <WhatsAppButton />
             <Footer />
           </RecaptchaProvider>

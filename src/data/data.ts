@@ -20,7 +20,7 @@ import porscheLogo from "@/images/brands/Porsche.webp"
 import suzukiLogo from "@/images/brands/Suzuki.webp"
 import toyotaLogo from "@/images/brands/Toyota.webp"
 import volkswagenLogo from "@/images/brands/Volkswagen.webp"
-import Solutionshowcare from "@/images/Best-Car-Repair-Service-in-Dubai.jpg"
+import Solutionshowcare from "@/images/Best-Car-Repair-Service-in-Dubai2.png"
 import WhyChoose from "@/images/WhyChoose.jpg";
 import hero1 from "@/images/hero1.webp";
 import hero2 from "@/images/hero2.webp";

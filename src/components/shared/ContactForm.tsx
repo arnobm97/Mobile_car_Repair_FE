@@ -71,7 +71,7 @@ export const ContactForm = ({
   return (
     <form
       onSubmit={handleSubmit(handleSubmitForm)}
-      className="mx-auto bg-brand shadow-md p-4  space-y-4 sm:space-y-6"
+      className="mx-auto bg-brand shadow-md p-4 md:p-1 space-y-4 sm:space-y-6"
     >
       {/* Name */}
       <div>
@@ -79,7 +79,7 @@ export const ContactForm = ({
           type="text"
           placeholder="Name"
           {...register("name")}
-          className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-none outline-hidden bg-primary focus:outline-none"
+          className="w-full p-2 sm:p-3 md:p-5 text-sm sm:text-base md:text-2xl rounded-none outline-hidden bg-primary focus:outline-none"
         />
         {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
       </div>
@@ -90,7 +90,7 @@ export const ContactForm = ({
           type="email"
           placeholder="Email"
           {...register("email")}
-          className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-none outline-hidden bg-primary focus:outline-none"
+          className="w-full p-2 sm:p-3 md:p-5 text-sm sm:text-base md:text-2xl rounded-none outline-hidden bg-primary focus:outline-none"
         />
         {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
       </div>
@@ -101,7 +101,7 @@ export const ContactForm = ({
           type="tel"
           placeholder="Phone"
           {...register("phone")}
-          className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-none outline-hidden bg-primary focus:outline-none"
+          className="w-full p-2 sm:p-3 md:p-5 text-sm sm:text-base md:text-2xl rounded-none outline-hidden bg-primary focus:outline-none"
         />
         {errors.phone && <p className="text-red-500 text-sm">{errors.phone.message}</p>}
       </div>
@@ -112,7 +112,7 @@ export const ContactForm = ({
           placeholder="Message"
           rows={4}
           {...register("message")}
-          className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-none outline-hidden bg-primary focus:outline-none"
+          className="w-full p-2 sm:p-3 md:p-5 text-sm sm:text-base md:text-2xl rounded-none outline-hidden bg-primary focus:outline-none"
         />
         {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
       </div>
@@ -121,7 +121,7 @@ export const ContactForm = ({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-primary hover:bg-secondary text-brand py-2 sm:py-3 text-sm sm:text-base font-semibold transition disabled:opacity-70"
+        className="w-full bg-primary hover:bg-secondary text-brand md:text-red-600 py-2 sm:py-3 md:py-5 text-sm sm:text-base md:text-2xl font-bold transition disabled:opacity-70"
       >
         {isSubmitting ? "Sending..." : "Send"}
       </button>
