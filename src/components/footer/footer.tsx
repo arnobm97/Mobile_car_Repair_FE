@@ -118,8 +118,11 @@ export const Footer = ({
       </div>
 
       {/* Bottom Bar - Moved outside the main container to be truly full width */}
-      <div className="py-2 border-t border-gray-800 bg-black w-full px-4">
-        <div className="container mx-auto flex flex-col items-start justify-between gap-2 md:flex-row md:items-center">
+      <div className="py-2 border-t border-gray-800 bg-black w-full px-4 lg:h-16 lg:pr-32">
+        <div className="container mx-auto flex lg:pt-2 flex-row items-start justify-between gap-2 md:flex-row md:items-center">
+          <p className="min-[320px]:text-[10px] lg:text-lg  sm:text-[8px] text-white text-left font-montserrat tracking-tight">
+            © <span className="text-white">www.mobilecarrepairsservice.com {currentYear}.</span>
+          </p>
           {/* Mobile & Desktop Social Links */}
           {showSocialLinks && (
             <div className="flex items-center gap-2">
@@ -130,7 +133,7 @@ export const Footer = ({
                 className="text-white hover:text-brand transition-all duration-300"
                 aria-label="Facebook"
               >
-                <Facebook className="w-7 h-7 md:w-4 md:h-4" />
+                <Facebook className="w-7 h-7 min-[320px]:w-4 min-[320px]:h-4 lg:w-7 lg:h-7 md:w-4 md:h-4 sm:w-4 sm:h-4" />
               </a>
               <a
                 href={instagramUrl}
@@ -139,14 +142,12 @@ export const Footer = ({
                 className="text-white hover:text-brand transition-all duration-300"
                 aria-label="Instagram"
               >
-                <Instagram className="w-6 h-6 md:w-4 md:h-4" />
+                <Instagram className="w-6 h-6 md:w-4  min-[320px]:w-4 min-[320px]:h-4 lg:w-7 lg:h-7 md:h-4 sm:w-4 sm:h-4" />
               </a>
             </div>
           )}
 
-          <p className="text-[16px] sm:text-[10px] text-white text-left font-montserrat tracking-tight">
-            © <span className="text-white">Mobilecarrepairsservice.com {currentYear}.</span>
-          </p>
+
         </div>
       </div>
     </footer>

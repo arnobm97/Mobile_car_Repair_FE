@@ -1,13 +1,5 @@
 "use client"
 
-import Link from "next/link"
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi
-} from "@/components/ui/carousel"
 import { useState, useEffect } from "react"
 import Image from "next/image"
 
@@ -37,15 +29,10 @@ interface HeroSliderProps {
 
 export function HeroSlider({ slides }: HeroSliderProps) {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
+    setMounted(true)
   }, [])
 
   useEffect(() => {
@@ -82,15 +69,22 @@ export function HeroSlider({ slides }: HeroSliderProps) {
               zIndex: index === currentSlide ? 1 : 0,
             }}
           >
+            {/* Single Image Approach - More Reliable */}
             <Image
-              src={isMobile && slide.imageSmall ? slide.imageSmall : slide.image}
+              src={slide.image}
               alt={slide.title}
               fill
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, 100vw"
               priority={index === 0}
-              className="object-cover"
-              style={{ objectPosition: "center" }}
+              className="object-cover md:object-cover"
+              style={{
+                objectPosition: "center",
+                // Force image to show on all screens
+                display: 'block'
+              }}
+              quality={90}
             />
+
             {/* Dark Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
           </div>
@@ -99,13 +93,16 @@ export function HeroSlider({ slides }: HeroSliderProps) {
 
       {/* Persistent Content */}
       <div className="absolute inset-0 z-10 flex h-full items-center justify-center px-4 md:px-8 lg:px-16 pointer-events-none">
-        <div className="max-w-4xl w-full text-center animate-fadeIn pointer-events-auto">
-          {/* Title - Specifically optimized for 320px screens */}
+        <div
+          key={currentSlide}
+          className="max-w-4xl w-full text-center animate-fadeIn pointer-events-auto"
+        >
+          {/* Title */}
           <h1
-            className="text-[32px] sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1] font-extrabold uppercase"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl text-white mb-6 tracking-tight drop-shadow-2xl leading-[1.1] font-extrabold uppercase"
             style={{ fontFamily: 'Montserrat, sans-serif' }}
           >
-            {slides[0].title}
+            {slides[currentSlide].title}
           </h1>
 
           {/* Description */}
@@ -113,24 +110,33 @@ export function HeroSlider({ slides }: HeroSliderProps) {
             className="text-sm sm:text-base md:text-xl text-white mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-lg px-2 font-medium"
             style={{ fontFamily: 'Poppins, sans-serif' }}
           >
-            {slides[0].description}
+            {slides[currentSlide].description}
           </p>
 
           {/* CTA Button */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href={slides[0].buttonLink}
-              className="font-bold bg-brand py-3 px-10 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105 inline-block text-center text-lg rounded-sm shadow-xl"
-              style={{ fontFamily: 'Montserrat, sans-serif' }}
-              onClick={() => handleCTAClick(slides[0].id, slides[0].buttonText)}
-            >
-              {slides[0].buttonText}
-            </a>
+            {slides[currentSlide].buttonLink.startsWith('tel:') ? (
+              <a
+                href={slides[currentSlide].buttonLink}
+                className="font-bold bg-brand py-3 px-10 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105 inline-block text-center text-lg rounded-sm shadow-xl"
+                style={{ fontFamily: 'Montserrat, sans-serif' }}
+                onClick={() => handleCTAClick(slides[currentSlide].id, slides[currentSlide].buttonText)}
+              >
+                {slides[currentSlide].buttonText}
+              </a>
+            ) : (
+              <a
+                href={slides[currentSlide].buttonLink}
+                className="font-bold bg-brand py-3 px-10 text-white hover:bg-brand/90 transition-all duration-300 transform hover:scale-105 inline-block text-center text-lg rounded-sm shadow-xl"
+                style={{ fontFamily: 'Montserrat, sans-serif' }}
+                onClick={() => handleCTAClick(slides[currentSlide].id, slides[currentSlide].buttonText)}
+              >
+                {slides[currentSlide].buttonText}
+              </a>
+            )}
           </div>
         </div>
       </div>
-
-
     </div>
   )
 }

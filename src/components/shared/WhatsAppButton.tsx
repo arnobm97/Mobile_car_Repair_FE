@@ -7,7 +7,7 @@ export const WhatsAppButton = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp us"
-            className="fixed bottom-4 right-2 z-[9999] animate-in fade-in slide-in-from-bottom-4 group"
+            className="fixed bottom-10 right-2 z-[9999] animate-in fade-in slide-in-from-bottom-4 group"
         >
             <div
                 className="flex z-99 items-center justify-center bg-[#e4e4e4] text-[#7f7d7d] w-14 h-14 sm:w-auto sm:h-9 md:h-12 px-0 sm:px-4 rounded-full shadow-lg transition-all duration-200 hover:bg-[#d4d4d4]"
