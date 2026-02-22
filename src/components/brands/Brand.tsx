@@ -23,7 +23,6 @@ export const BrandsSection = ({ heading, description, brands }: BrandsSectionPro
           </p>
         </div>
 
-        {/* Marquee Container */}
         <div className="relative w-full overflow-hidden mask-gradient-to-r from-transparent via-black to-transparent">
           <div className="flex w-max animate-marquee gap-12 hover:[animation-play-state:paused] items-center">
             {/* Original Brands */}
