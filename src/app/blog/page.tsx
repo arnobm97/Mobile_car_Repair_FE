@@ -1,6 +1,6 @@
 import { PageHero } from "@/components/shared/PageHero";
 import React from "react";
-import blogHero from "@/images/Best-Car-Repair-Service-in-Dubai.jpg";
+import blogHero from "@/images/hero1.webp"
 
 import { blogPosts } from "@/data/data";
 import BlogCard, { BlogCardProps } from "@/components/blog/BlogCard";
@@ -14,10 +14,10 @@ const page = () => {
         backgroundImage={blogHero}
         breadcrumbs={[{ label: "Blog" }]}
       />
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 font-montserrat">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((post:BlogCardProps) => (
+            {blogPosts.map((post: BlogCardProps) => (
               <BlogCard key={post.slug} {...post} />
             ))}
           </div>

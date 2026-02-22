@@ -21,7 +21,7 @@ const BlogCard = ({
       ? content.slice(0, content.lastIndexOf(" ", excerptLength)) + "..."
       : content;
   return (
-    <article className="bg-primary border border-brand/20">
+    <article className="bg-primary border border-brand/20 font-montserrat">
       <div className="flex flex-col h-full justify-between">
         <div className="py-6 px-4">
           <Link

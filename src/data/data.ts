@@ -210,7 +210,7 @@ export const whyChooseData = {
   sectionTitle: "Why Choose Us ?",
   mainHeading: "Best Car Repair Service In Dubai",
   introText:
-    "At Car Repair Service, we don't just fix cars, we build trust and lasting relationships with our valued customers. Here's why we stand out from the competition:",
+    "At <strong>Car Repair Service</strong>, we don't just fix cars, we build trust and lasting relationships with our valued customers. Here's why we stand out from the competition:",
   features: [
     {
       title: "Unparalleled Expertise – Car Repair Service Dubai",

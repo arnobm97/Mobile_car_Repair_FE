@@ -1,18 +1,18 @@
 import { ServicesSection } from '@/components/service/service';
 import { PageHero } from '@/components/shared/PageHero'
 import { servicesSection } from '@/data/data';
-import serviceHero from "@/images/MobileCarRepairService.png";
+import serviceHero from "@/images/hero1.webp";
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-        <PageHero 
-        title="Services" 
+      <PageHero
+        title="Services"
         backgroundImage={serviceHero}
         breadcrumbs={[{ label: "Services" }]}
       />
-      <ServicesSection {...servicesSection}/>
+      <ServicesSection {...servicesSection} />
     </div>
   )
 }
