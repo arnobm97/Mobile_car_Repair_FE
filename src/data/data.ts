@@ -52,7 +52,7 @@ export const heroSlides = [
     id: 2,
     image: hero2.src,
     imageSmall: hero2small.src,
-    title: "VEHICLE REPAIR SERVICE IN DUBAI", // All caps
+    title: "VEHICLE REPAIR SERVICE IN DUBAI",
     description: "Comprehensive car repair and maintenance services by certified mechanics. From engine diagnostics to brake repairs, we handle all your vehicle needs with precision and care.",
     buttonText: "Call Us Now",
     buttonLink: "tel:+971557767041",
