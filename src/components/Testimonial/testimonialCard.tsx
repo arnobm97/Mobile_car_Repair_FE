@@ -55,11 +55,13 @@ export const TestimonialCard = ({
 
         {/* Google G Logo */}
         <div className="flex-shrink-0">
-          <img
+          <Image
             src="https://cdn.trustindex.io/assets/platform/Google/icon.svg"
             alt="Google"
-            className="w-5 h-5"
+            width={20}
+            height={20}
             loading="lazy"
+            className="w-5 h-5"
           />
         </div>
       </div>
@@ -67,12 +69,14 @@ export const TestimonialCard = ({
       {/* Middle row: Stars + Blue Checkmark */}
       <div className="flex items-center gap-1 mb-3">
         {[...Array(5)].map((_, i) => (
-          <img
+          <Image
             key={i}
             src="https://cdn.trustindex.io/assets/platform/Google/star/f.svg"
             alt="Star"
-            className="w-[14px] h-[14px]"
+            width={14}
+            height={14}
             loading="lazy"
+            className="w-[14px] h-[14px]"
           />
         ))}
         {verified && (

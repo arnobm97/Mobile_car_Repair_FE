@@ -76,6 +76,7 @@ export function HeroSlider({ slides }: HeroSliderProps) {
               fill
               sizes="(max-width: 768px) 100vw, 100vw"
               priority={index === 0}
+              loading={index === 0 ? "eager" : "lazy"}
               className="object-cover md:object-cover"
               style={{
                 objectPosition: "center",

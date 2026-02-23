@@ -1,5 +1,5 @@
 import { ChevronsRight, Home } from "lucide-react";
-import { StaticImageData } from "next/image";
+import NextImage, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface PageHeroProps {
@@ -18,15 +18,16 @@ export const PageHero = ({
   return (
     <div className="relative h-[200px] md:h-[300px] lg:h-[350px] w-full overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${typeof backgroundImage === "string"
-              ? backgroundImage
-              : backgroundImage.src
-            })`,
-        }}
-      >
+      <div className="absolute inset-0">
+        <NextImage
+          src={typeof backgroundImage === "string" ? backgroundImage : backgroundImage.src}
+          alt={typeof title === "string" ? title : "Hero Background"}
+          fill
+          priority={false}
+          loading="lazy"
+          className="object-cover"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
